@@ -7,8 +7,8 @@ const ServiceOption = ({title, price, list}) => {
             <h2 className='option-title'>{title}</h2>
             {price && (<h3 className='option-price'>{price}</h3>)}
             <ol className='option-list'>
-                {list.map(item => (
-                    <li>{item}</li>
+                {list.map((item, index) => (
+                    <li key={index}>{item}</li>
                 ))}
             </ol>
         </Container>
