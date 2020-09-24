@@ -38,7 +38,7 @@ export const Menu = () => {
             <Link to="/">Woopix</Link>
           </li>
           <li className="menu-items">
-             <Link to="/service">Site</Link> 
+             <Link to="/services">Site</Link>
           </li>
           <li className="menu-items">
              <Link to="/about">A propos</Link> 

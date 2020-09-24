@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import styled, {withTheme} from 'styled-components'
 import ServicesItem from "./components/ServiceItem.js";
+import ServiceOption from "./components/ServiceOption";
 
 
 const Services = (props) => {
@@ -25,10 +26,6 @@ const Services = (props) => {
 
             <div className={'sub-container'}>
                 <div className='services-list'>
-<<<<<<< HEAD
-                   
-                   
-=======
                     <ServicesItem
                         title={'Site Vitrines'}
                         subtitle={'Àpd de'}
@@ -46,11 +43,44 @@ const Services = (props) => {
                             leur modelons un site à leur image sans template, complètement personnalisé. Il serait développé 
                             sur base de code PHP.`}
                     />
->>>>>>> 22a06ab247b98e8b5373fc1c36f71618d32bc5d1
                 </div>
 
                 <div className="option-list">
-                   
+                    <ServiceOption
+                        title={'Options Incluses'}
+                        list={[
+                            'Création de site en CMS sur base de Template (WordPress, Joomla ) ou PHP (site sur mesure)',
+                            'L’insertion de Logo, Medias, Texte ( Fournis par vos soins )',
+                            'Une version Responsive ( Smartphone & Tablette)',
+                            'Un référencement naturel sur Google',
+                            'Installation du site sur les moteurs de recherche',
+                            'Demie journée de formation et information'
+                        ]}
+                    />
+
+                    <ServiceOption
+                        title={'Maintenance Standard'}
+                        price={'39€/Mois'}
+                        list={[
+                            'Renouvellement du nom de domaine et hébergement',
+                            'Assistance bug site',
+                            '2 adresses mails personnalisées'
+                        ]}
+                    />
+
+                    <ServiceOption
+                        title={'Maintenance Premium'}
+                        price={'119€/Mois'}
+                        list={[
+                            'Renouvellement du nom de domaine et hébergement',
+                            'Assistance bug site',
+                            '3 adresses mails personnalisées',
+                            'Rapport statistiques trafic du site (analytics)',
+                            'Assistance téléphonique',
+                            'Modification des contenus',
+                            'Référencement pour moteurs de recherche'
+                        ]}
+                    />
                 </div>
             </div>
         </Container>
