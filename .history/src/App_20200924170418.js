@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as HashRouter, Switch, Route } from "react-router-dom";
 import {createGlobalStyle,ThemeProvider} from "styled-components";
-import {Services} from './pages/Services'
+import Services from './pages/Services'
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Portfolio } from "./pages/Portfolio/";
