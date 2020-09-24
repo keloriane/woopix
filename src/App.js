@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as HashRouter, Switch, Route } from "react-router-dom";
 import {createGlobalStyle,ThemeProvider} from "styled-components";
 import Services from './pages/Services'
+import { Home } from './pages/Home';
+import { About } from './pages/About';
 
 
 const theme = {
@@ -9,13 +12,20 @@ const theme = {
   blue: '#1B065E'
 };
 
+
 function App() {
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-       <Services />
-      </ThemeProvider>
-    </div>
+    <HashRouter>
+      <Switch>
+        <div className="App">
+          <ThemeProvider theme={theme}>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/services" component={Services} />
+          </ThemeProvider>
+        </div>
+      </Switch>
+    </HashRouter>
   );
 }
 
