@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.css';
-import Services from './pages/Services'
 import {createGlobalStyle,ThemeProvider} from "styled-components";
+import Services from './pages/Services'
 
 
 const theme = {
-  main: "green"
+  green: '#8DC63F',
+  blue: '#1B065E'
 };
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-       <Services></Services>
+       <Services />
       </ThemeProvider>
     </div>
   );
