@@ -249,13 +249,9 @@ export const About = () => {
             }
           }
           .call-to-action {
-              display: flex;
-              justify-content: center;
-
             button {
               width: 171px;
               height: 38px;
-                
               a {
                 font-weight: 600;
                 font-size: 17px;

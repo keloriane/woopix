@@ -5,8 +5,6 @@ import {createGlobalStyle,ThemeProvider} from "styled-components";
 import Services from './pages/Services'
 import { Home } from './pages/Home';
 import { About } from './pages/About';
-import { Service } from "./pages/Portfolio/";
-
 
 
 const theme = {
@@ -23,13 +21,12 @@ function App() {
           <ThemeProvider theme={theme}>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/service" component={Service} />
           <Route exact path="/services" component={Services} />
           </ThemeProvider>
         </div>
       </Switch>
     </HashRouter>
-  );
+  );y
 }
 
 export default App;

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 
 import homeImage from "./../../assets/img/home.png";
 import styled from "styled-components";
-import Container from "./../../global/Container";
 
 export const Home = () => {
   const HomeContainer = styled.div`

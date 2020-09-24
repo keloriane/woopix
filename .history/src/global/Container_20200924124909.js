@@ -34,22 +34,4 @@ const Container = styled.div`
     }
   }
 
-  @media (max-width: 576px) {
-    background-color: orange;
-  }
-
-  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-  @media (min-width: 768px) {
-   
-  }
-
-  /* Large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-    background-color: black;
-  }
-
-  /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-    background-color: brown;
-  }
 `;

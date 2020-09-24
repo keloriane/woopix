@@ -235,8 +235,8 @@ export const About = () => {
             max-width: 886px;
             height: 128px;
             .inner-text {
-              width: 100%;
-              max-width: 420px;
+                width: 100%;
+                max-width:420px;
               p {
                 font-style: normal;
                 font-weight: normal;
@@ -245,21 +245,6 @@ export const About = () => {
                 /* or 32px */
 
                 color: rgba(0, 0, 0, 0.6);
-              }
-            }
-          }
-          .call-to-action {
-              display: flex;
-              justify-content: center;
-
-            button {
-              width: 171px;
-              height: 38px;
-                
-              a {
-                font-weight: 600;
-                font-size: 17px;
-                line-height: 22px;
               }
             }
           }

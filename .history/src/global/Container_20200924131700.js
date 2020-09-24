@@ -40,7 +40,7 @@ const Container = styled.div`
 
   /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
   @media (min-width: 768px) {
-   
+    background-color: green;
   }
 
   /* Large devices (desktops, 992px and up) */

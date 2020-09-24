@@ -216,52 +216,20 @@ export const About = () => {
             height: 165px;
             .number-title {
               h2 {
-                font-size: 134.475px;
-                line-height: 107.33%;
+                    font-size: 134.475px;
+                    line-height: 107.33%;
               }
             }
             .title {
-              h2 {
+                h2{
                 font-size: 59.7665px;
                 line-height: 107.33%;
-              }
+                }
             }
           }
-          .text-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 886px;
-            height: 128px;
-            .inner-text {
-              width: 100%;
-              max-width: 420px;
-              p {
-                font-style: normal;
-                font-weight: normal;
-                font-size: 20px;
-                line-height: 160.2%;
-                /* or 32px */
-
-                color: rgba(0, 0, 0, 0.6);
-              }
-            }
-          }
-          .call-to-action {
+          .text-container{
               display: flex;
-              justify-content: center;
-
-            button {
-              width: 171px;
-              height: 38px;
-                
-              a {
-                font-weight: 600;
-                font-size: 17px;
-                line-height: 22px;
-              }
-            }
+              flex-direction: row;
           }
         }
       }

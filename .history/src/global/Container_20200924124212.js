@@ -8,6 +8,11 @@ const GlobalContainer = (props) => {
 export default withTheme(GlobalContainer);
 
 const Container = styled.div`
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+  text-align: center;
+  max-width: 1025px;
 
   .call-to-action {
     button {
@@ -34,13 +39,13 @@ const Container = styled.div`
     }
   }
 
-  @media (max-width: 576px) {
+  @media (min-width: 576px) {
     background-color: orange;
   }
 
   /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
   @media (min-width: 768px) {
-   
+    background-color: green;
   }
 
   /* Large devices (desktops, 992px and up) */

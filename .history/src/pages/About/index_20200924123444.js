@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Container from "./../../global/Container";
 
 export const About = () => {
   const AboutWrapper = styled.div`
@@ -11,9 +10,6 @@ export const About = () => {
       display: flex;
       align-items: center;
       font-family: "Futura PT", sans-serif;
-    }
-    .about-wrapper {
-      display: flex;
     }
     .main-title {
       display: flex;
@@ -139,16 +135,9 @@ export const About = () => {
         }
       }
     }
-    @media screen and (min-width: 596px) {
+    @media screen and (max-width: 992px) {
       #about {
         .about-wrapper {
-          width: 100%;
-          max-width: 643px;
-          height: 804px;
-          margin: auto;
-          flex-direction: column;
-          justify-content: space-around;
-
           .main-title {
             width: 530px;
             height: 160px;
@@ -174,7 +163,7 @@ export const About = () => {
         .text-container {
           width: 100%;
           max-width: 625.92px;
-          height: 429px;
+          height: 213.42px;
           margin: 0 auto;
           .inner-text {
             p {
@@ -183,83 +172,8 @@ export const About = () => {
               font-weight: normal;
               font-size: 34.076px;
               line-height: 160.2%;
-              span {
-                color: ${(props) => props.theme.green};
-              }
-            }
-          }
-        }
-        .call-to-action {
-          button {
-            width: 308.2px;
-            height: 68.7px;
-            a {
-              font-weight: 600;
-              font-size: 30.489px;
-              line-height: 39px;
-              letter-spacing: 0.04em;
-              color: white;
-            }
-          }
-        }
-      }
-    }
-    @media screen and (min-width: 992px) {
-      #about {
-        .about-wrapper {
-          width: 100%;
-          max-width: 1054px;
-          height: 475px;
-          .main-title {
-            max-width: 545px;
-            width: 100%;
-            height: 165px;
-            .number-title {
-              h2 {
-                font-size: 134.475px;
-                line-height: 107.33%;
-              }
-            }
-            .title {
-              h2 {
-                font-size: 59.7665px;
-                line-height: 107.33%;
-              }
-            }
-          }
-          .text-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 886px;
-            height: 128px;
-            .inner-text {
-              width: 100%;
-              max-width: 420px;
-              p {
-                font-style: normal;
-                font-weight: normal;
-                font-size: 20px;
-                line-height: 160.2%;
-                /* or 32px */
-
-                color: rgba(0, 0, 0, 0.6);
-              }
-            }
-          }
-          .call-to-action {
-              display: flex;
-              justify-content: center;
-
-            button {
-              width: 171px;
-              height: 38px;
-                
-              a {
-                font-weight: 600;
-                font-size: 17px;
-                line-height: 22px;
+              span{
+                color :  ${props => props.theme.green}
               }
             }
           }
@@ -268,48 +182,43 @@ export const About = () => {
     }
   `;
   return (
-    <Container>
-      <AboutWrapper>
-        <div id="about">
-          <div className="about-wrapper">
-            <div className="main-title">
-              <div className="number-title">
-                <h2>01</h2>
-              </div>
-              <div className="title">
-                <h2>
-                  à propos <br></br>de woopix{" "}
-                </h2>
-              </div>
+    <AboutWrapper>
+      <div id="about">
+        <div className="about-wrapper">
+          <div className="main-title">
+            <div className="number-title">
+              <h2>01</h2>
             </div>
-            <div className="text-container">
-              <div className="inner-text">
-                <p>
-                  Woopix est une <span>agence de communication</span> qui
-                  propose des <span>outils marketings</span> et des services{" "}
-                  <span>complets</span> en matière de communication, sur
-                  internet et sur tout support imprimé.
-                </p>
-              </div>
-              <div className="inner-text">
-                <p>
-                  Au fil des années et des projets réalisés, Woopix s’est
-                  perfectionné dans le développement{" "}
-                  <span>
-                    de site internet et la gestion des réseaux sociaux
-                  </span>
-                </p>
-              </div>
-            </div>
-            <div className="call-to-action">
-              <button>
-                <Link to="/services">En savoir plus</Link>
-              </button>
+            <div className="title">
+              <h2>
+                à propos <br></br>de woopix{" "}
+              </h2>
             </div>
           </div>
+          <div className="text-container">
+            <div className="inner-text">
+              <p>
+                Woopix est une <span>agence de communication</span>  qui propose des <span>outils
+                marketings</span>  et des services <span>complets</span>  en matière de communication,
+                sur internet et sur tout support imprimé.
+              </p>
+            </div>
+            <div className="inner-text">
+              <p>
+                Au fil des années et des projets réalisés, Woopix s’est
+                perfectionné dans le développement <span>de site internet et la
+                gestion des réseaux sociaux</span> 
+              </p>
+            </div>
+          </div>
+          <div className="call-to-action">
+            <button>
+              <Link to="/services">En savoir plus</Link>
+            </button>
+          </div>
         </div>
-      </AboutWrapper>
-    </Container>
+      </div>
+    </AboutWrapper>
   );
 };
 

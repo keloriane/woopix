@@ -255,7 +255,7 @@ export const About = () => {
             button {
               width: 171px;
               height: 38px;
-                
+              
               a {
                 font-weight: 600;
                 font-size: 17px;
