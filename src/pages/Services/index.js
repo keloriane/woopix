@@ -16,18 +16,20 @@ import ServiceOption from "./components/ServiceOption";
                     Les prix affichés ci-dessous sont tous hors taxes (21%)
             </div>
 
-            <div className='subContainer'>
+            <div className={'subContainer'}>
                 <div className='services-list'>
                     <ServicesItem
                         title={ 'Site Vitrines'}
-                        subtitle={ 'Àpd de <span data-type="price">1199€</span>'}
+                        subtitle={'Àpd de'}
+                        price={'1299€'}
                         text={ `Le site VITRINE de chez Woopix est adapté aux PME du style Restaurant, Brasserie, Salon de 
                             Coiffure, Boulangerie, Sandwicherie, Profession Libérale… Des entreprises qui veulent 
                             afficher des galeries photos, des tarifs, ou bien une fiche de réservation, une map, un chat…`}
                     />
                     <ServicesItem
                         title={ 'Site Sur Mesure'}
-                        subtitle={ 'Àpd de <span data-type="price">3499€</span>'}
+                        subtitle={'Àpd de'}
+                        price={'3499€'}
                         text={ `Le site SUR MESURE de chez Woopix est aussi adapté aux PME du style Restaurant, Brasserie, 
                             Salon de Coiffure, Boulangerie, Sandwicherie, Profession Libérale… Mais qui souhaitent que nous 
                             leur modelons un site à leur image sans template, complètement personnalisé. Il serait développé 
@@ -50,7 +52,7 @@ import ServiceOption from "./components/ServiceOption";
 
                     <ServiceOption
                         title={'Maintenance Standard'}
-                        price={'39/Mois'}
+                        price={'39€/Mois'}
                         list={[
                             'Renouvellement du nom de domaine et hébergement',
                             'Assistance bug site',
@@ -60,7 +62,7 @@ import ServiceOption from "./components/ServiceOption";
 
                     <ServiceOption
                         title={'Maintenance Premium'}
-                        price={'119/Mois'}
+                        price={'119€/Mois'}
                         list={[
                             'Renouvellement du nom de domaine et hébergement',
                             'Assistance bug site',
@@ -104,6 +106,7 @@ margin: 0 auto;
       text-align: left;
       font-family: "Futura PT", serif;
       font-weight: 100;
+      line-height: 130%;
       span{
         color :  ${props => props.theme.green}
       }

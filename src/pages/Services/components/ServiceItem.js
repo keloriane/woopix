@@ -1,12 +1,12 @@
 import React,{useEffect} from 'react'
 import styled,{withTheme} from 'styled-components'
 
-const ServicesItem = ({title, subTitle, text}) => {
+const ServicesItem = ({title, subtitle, price, text}) => {
     return (
         <Container>
             <h2 className={'service-item-title'}>{title}</h2>
-            <h3 className={'service-item-subtitle'}>{subTitle}</h3>
-            <h3 className={'service-item-item'}>{text}</h3>
+            <h3 className={'service-item-subtitle'}>{subtitle} <span className={'price'}>{price}</span></h3>
+            <h3 className={'service-item-text'}>{text}</h3>
         </Container>
     )
 
@@ -28,16 +28,27 @@ margin-bottom: 50px;
 font-family: 'Futura PT';
     .service-item-title{
       font-style: normal;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 64px;
+      color:${props => props.theme.blue};
+      margin-bottom: 10px;
     }
+    
     .service-item-subtitle{
       font-style: normal;
       font-weight: 600;
-      font-size: 64px;
-         span[data-type='price'] {
+      font-size: 40px;
+          color:${props => props.theme.blue};
+         .price{
           color: ${props => props.theme.green};
       }
+    }
+    
+    .service-item-text{
+        font-style: italic;
+        line-height: 130%;
+        font-weight: 100;
+        margin-top: 30px;
     }
  
     @media (min-width: 576px) {  }
