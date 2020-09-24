@@ -50,6 +50,7 @@ font-family: 'Futura PT';
       li{
         font-weight: 100;
         font-size: 24px;
+        line-height: 150%;
         margin-bottom: 10px;
       }
       
