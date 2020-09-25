@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Menu = (props) => {
+export const Menu = () => {
   const MenuContainer = styled.div`
     .menu {
       width: 100%;
@@ -35,19 +35,19 @@ export const Menu = (props) => {
       <div className="menu">
         <ul className="main-menu">
           <li className="menu-items">
-            <Link to="/" onClick={props.animation1}>Woopix</Link>
+            <Link to={props.home}>Woopix</Link>
           </li>
           <li className="menu-items">
-             <Link to="/services" onClick={props.animation2}>Site</Link>
+             <Link to={props.service}>Site</Link>
           </li>
           <li className="menu-items">
-             <Link to="/about" onClick={props.animation3}>A propos</Link> 
+             <Link to={props.about}>A propos</Link> 
           </li>
           <li className="menu-items">
-            <Link to="/portfolio" onClick={props.animation4}>Réalisations</Link>
+            <Link to={props.portfolio}>Réalisations</Link>
           </li>
           <li className="menu-items">
-            <Link to="/contact" onClick={props.animation5}>Contact</Link>
+            <Link to={props.contact}>Contact</Link>
           </li>
         </ul>
       </div>

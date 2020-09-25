@@ -22,6 +22,7 @@ const Home = (props) => {
       homeTl.reverse();
       const timelineDuration = homeTl.duration()*1000;
       setTimeout(() => {
+        
           props.history.push(destination);
         }, timelineDuration);
     }
@@ -30,11 +31,11 @@ const Home = (props) => {
     <HomeContainer>
       <Container>
         <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
+          animation1={e=> changePage(e, '/')}
+          animation2={e=> changePage(e, '/')}
+          animation3={e=> changePage(e, '/')}
+          animation4={e=> changePage(e, '/')}
+          animation4={e=> changePage(e, '/')}
         />
       <div className="home">
         <div className="home-wrapper">
@@ -68,7 +69,6 @@ const Home = (props) => {
     </HomeContainer>
   );
 };
-export default withRouter(Home);
   const HomeContainer = styled.div`
     .home {
       
@@ -272,3 +272,4 @@ export default withRouter(Home);
     }
   
   `;
+export default Home;

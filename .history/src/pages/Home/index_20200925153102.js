@@ -3,39 +3,40 @@ import gsap from 'gsap'
 import homeImage from "./../../assets/img/home.png";
 import styled from "styled-components";
 import Container from "./../../global/Container";
-import Menu from "./../Menu/"
-import {withRouter} from "react-router-dom";
 
-const Home = (props) => {
-  let homeTl = gsap.timeline({paused:true})
+export const Home = () => {
   useEffect(()=>{
+    let titleArray = [];
+    function splitWord(word) {
+        return [...word]
+        .map(letter => `<span class="chars">${letter}</span>`)
+        .join("");
+    }
+    const words = [...document.querySelectorAll(".text-letter")];
+    // eslint-disable-next-line
+    words.map(word => {
+        word.innerHTML = splitWord(word.textContent);
+        const newLetter = [...word.querySelectorAll(".chars")]; 
+        // eslint-disable-next-line
+        newLetter.map(letter => {
+            titleArray.push(letter);
+        });
+    }); 
+    let chars = document.querySelectorAll('.chars')
     let homeTl = gsap.timeline()
+
     homeTl
       .from('.green-layout',1,{width:0, transformOrigin:"left"})
+      .staggerFrom(".chars",.3,{y:"20%"},.2)
       .fromTo('.home-image',1,{x:"-100%"},{x:"0%", opacity:1, delay:-.8})
-      .staggerFrom('h1',1,{y:"100%", opacity:0, delay:-.6},.1)
-    homeTl.play()
-    },[])
-    
-    const changePage=(e, destination) => {
-      e.preventDefault();
-      homeTl.reverse();
-      const timelineDuration = homeTl.duration()*1000;
-      setTimeout(() => {
-          props.history.push(destination);
-        }, timelineDuration);
-    }
+
+
+  },[])
+
 
   return (
     <HomeContainer>
       <Container>
-        <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
-        />
       <div className="home">
         <div className="home-wrapper">
             <div className="bg-green">
@@ -47,8 +48,7 @@ const Home = (props) => {
           </div>
           <div className="title-home-container">
             <h1>
-              BIENVENUE SUR WOOPIX </h1>
-              <h1>
+              BIENVENUE SUR WOOPIX
               <span className="green">Agence de Communication & Marketing</span>
             </h1>
             <div className="call-to-action-home">
@@ -68,7 +68,6 @@ const Home = (props) => {
     </HomeContainer>
   );
 };
-export default withRouter(Home);
   const HomeContainer = styled.div`
     .home {
       

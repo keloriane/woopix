@@ -11,4 +11,4 @@ const CallToAction = (props) => {
   );
 };
 
-export default CallToAction;
+export default index;

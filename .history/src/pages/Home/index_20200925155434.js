@@ -30,11 +30,11 @@ const Home = (props) => {
     <HomeContainer>
       <Container>
         <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
+          animation1={e => changePage(e, '/')}
+          animation2={e => changePage(e, '/services')}
+          animation3={e => changePage(e, '/about')}
+          animation4={e => changePage(e, '/portfolio')}
+          animation4={e => changePage(e, '/contact')}
         />
       <div className="home">
         <div className="home-wrapper">

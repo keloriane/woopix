@@ -35,19 +35,19 @@ export const Menu = (props) => {
       <div className="menu">
         <ul className="main-menu">
           <li className="menu-items">
-            <Link to="/" onClick={props.animation1}>Woopix</Link>
+            <Link to="/" onClick={props.animaiton1}>Woopix</Link>
           </li>
           <li className="menu-items">
-             <Link to="/services" onClick={props.animation2}>Site</Link>
+             <Link to="/services" onClick={props.animaiton2}>Site</Link>
           </li>
           <li className="menu-items">
-             <Link to="/about" onClick={props.animation3}>A propos</Link> 
+             <Link to="/about" onClick={props.animaiton3}>A propos</Link> 
           </li>
           <li className="menu-items">
-            <Link to="/portfolio" onClick={props.animation4}>Réalisations</Link>
+            <Link to="/portfolio" onClick={props.animaiton4}>Réalisations</Link>
           </li>
           <li className="menu-items">
-            <Link to="/contact" onClick={props.animation5}>Contact</Link>
+            <Link to="/contact" onClick={props.animaiton5}>Contact</Link>
           </li>
         </ul>
       </div>

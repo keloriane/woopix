@@ -3,52 +3,25 @@ import gsap from 'gsap'
 import homeImage from "./../../assets/img/home.png";
 import styled from "styled-components";
 import Container from "./../../global/Container";
-import Menu from "./../Menu/"
-import {withRouter} from "react-router-dom";
 
-const Home = (props) => {
-  let homeTl = gsap.timeline({paused:true})
+export const Home = () => {
   useEffect(()=>{
-    let homeTl = gsap.timeline()
-    homeTl
-      .from('.green-layout',1,{width:0, transformOrigin:"left"})
-      .fromTo('.home-image',1,{x:"-100%"},{x:"0%", opacity:1, delay:-.8})
-      .staggerFrom('h1',1,{y:"100%", opacity:0, delay:-.6},.1)
-    homeTl.play()
-    },[])
-    
-    const changePage=(e, destination) => {
-      e.preventDefault();
-      homeTl.reverse();
-      const timelineDuration = homeTl.duration()*1000;
-      setTimeout(() => {
-          props.history.push(destination);
-        }, timelineDuration);
-    }
+    gsap.from('.bg-green',1,x:"100")
+    gsap.from('.home-image',1,{x:"100%"})
+  },[])
+
 
   return (
     <HomeContainer>
       <Container>
-        <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
-        />
       <div className="home">
         <div className="home-wrapper">
-            <div className="bg-green">
-              <div className="green-layout">
-              </div>
-            </div>
           <div className="main-logo-container">
             <img src="" alt="" />
           </div>
           <div className="title-home-container">
             <h1>
-              BIENVENUE SUR WOOPIX </h1>
-              <h1>
+              BIENVENUE SUR WOOPIX
               <span className="green">Agence de Communication & Marketing</span>
             </h1>
             <div className="call-to-action-home">
@@ -56,6 +29,7 @@ const Home = (props) => {
             </div>
           </div>
           <div className="image-container">
+            <div className="bg-green"></div>
             <img className="home-image" src={homeImage} alt="" />
           </div>
           <div className="call-to-action-home">
@@ -68,7 +42,6 @@ const Home = (props) => {
     </HomeContainer>
   );
 };
-export default withRouter(Home);
   const HomeContainer = styled.div`
     .home {
       
@@ -175,7 +148,6 @@ export default withRouter(Home);
           max-width: 562px;
           width: 100%;
           position: relative;
-          overflow: hidden;
           .bg-green {
             display: block;
             background-color: #8dc63f;
@@ -204,23 +176,6 @@ export default withRouter(Home);
           height: 504px;
 
           margin: 0 auto;
-          .bg-green { 
-            height: 500px;
-            width: 500px;
-            position: absolute;
-            z-index: -1;
-            right: -61px;
-            bottom: -46px;
-            width: 367.58px;
-            height: 451.49px;
-            .green-layout{
-              width: 100%;
-              height: 100%;
-              background-color: ${(props) => props.theme.green};
-              }
-
-            }
-            
           .main-logo-container {
           }
           .title-home-container {
@@ -255,8 +210,14 @@ export default withRouter(Home);
             position: relative;
             max-width: 495px;
             width: 100%;
-            overflow: hidden;
-           
+            .bg-green {
+              width: 313.87px;
+              height: 384.99px;
+              position: absolute;
+              right: -50px;
+              bottom: -36px;
+              background-color: #8dc63f;
+            }
 
             img {
               position: absolute;
@@ -270,5 +231,4 @@ export default withRouter(Home);
         }
       }
     }
-  
   `;

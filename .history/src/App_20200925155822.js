@@ -23,11 +23,11 @@ function App() {
       <Switch>
         <div className="App">
           <ThemeProvider theme={theme}>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/portfolio" component={Portfolio} />
-          <Route exact path="/services" component={Services} />
-          <Route exact path="/nos-services" component={OurServices} />
+          <Route exact path="/" render={Home} />
+          <Route exact path="/about" render={About} />
+          <Route exact path="/portfolio" render={Portfolio} />
+          <Route exact path="/services" render={Services} />
+          <Route exact path="/nos-services" render={OurServices} />
           </ThemeProvider>
         </div>
       </Switch>
