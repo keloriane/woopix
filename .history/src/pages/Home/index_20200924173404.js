@@ -127,8 +127,7 @@ export const Home = () => {
       .home {
         display: flex;
         align-items: center;
-        height:100vh;
-        width: 100vw;
+        height:500px;
         
         .home-wrapper {
           display: flex;
