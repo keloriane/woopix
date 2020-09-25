@@ -27,7 +27,7 @@ const Home = (props) => {
         }, timelineDuration);
     }
 
-    
+    document.addEventListener('wheel', changePage(e=>'/about'))
   return (
     <HomeContainer>
       <Container>

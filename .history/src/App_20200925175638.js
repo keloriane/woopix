@@ -24,7 +24,7 @@ function App() {
       <Switch>
         <div className="App">
           <ThemeProvider theme={theme}>
-          <Route exact path="/" component={Home} />
+          <Route exact path="" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/portfolio" component={Portfolio} />
           <Route exact path="/services" component={Services} />
