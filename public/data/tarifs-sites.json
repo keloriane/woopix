@@ -1,0 +1,66 @@
+{
+  "pageTitle": "CREATION DE SITE",
+  "pageDescription": "Woopix créé des <span>sites web</span> utilisant la technologie HTLM5 et CSS3. Nous développons des sites sur une base de template CMS ( WordPress, Joomla, Drupal) ou pouvons développer des sites sur mesure avec Adobe Muse et l’encodage en php ( Beaucoup plus couteux, et généralement pas adapté au PME). Vous trouverez ci-dessous nos différentes formules accompagnées de leurs tarifs. Sur chacune des formules, vous trouverez un ou plusieurs liens d’exemples. Les prix affichés ci-dessous sont tous hors taxes (21%).",
+  "items": [
+    {
+      "title": "Site Vitrines",
+      "subtitle": "Àpd de",
+      "price": "1299€",
+      "text": "Le site VITRINE de chez Woopix est adapté aux PME du style Restaurant, Brasserie, Salon de Coiffure, Boulangerie, Sandwicherie, Profession Libérale… Des entreprises qui veulent afficher des galeries photos, des tarifs, ou bien une fiche de réservation, une map, un chat."
+    },
+    {
+      "title": "Site Sur Mesure",
+      "subtitle": "Àpd de",
+      "price": "3499€",
+      "text": "Le site SUR MESURE de chez Woopix est aussi adapté aux PME du style Restaurant, Brasserie, Salon de Coiffure, Boulangerie, Sandwicherie, Profession Libérale… Mais qui souhaitent que nous leur modelons un site à leur image sans template, complètement personnalisé. Il serait développé sur base de code PHP."
+    }
+  ],
+  "options": [
+    {
+      "title": "Options Incluses",
+      "list": [
+        "Création de site en CMS sur base de Template (WordPress, Joomla ) ou PHP (site sur mesure)",
+        "L’insertion de Logo, Medias, Texte ( Fournis par vos soins )",
+        "Une version Responsive ( Smartphone & Tablette)",
+        "Un référencement naturel sur Google",
+        "Installation du site sur les moteurs de recherche",
+        "Demie journée de formation et information"
+      ]
+    },
+    {
+      "title": "Maintenance Standard",
+      "price": "39€/Mois",
+      "list": [
+        "Renouvellement du nom de domaine et hébergement",
+        "Assistance bug site",
+        "2 adresses mails personnalisées"
+      ]
+    },
+    {
+      "title": "Maintenance Premium",
+      "price": "119€/Mois",
+      "list": [
+        "Renouvellement du nom de domaine et hébergement",
+        "Assistance bug site",
+        "3 adresses mails personnalisées",
+        "Rapport statistiques trafic du site (analytics)",
+        "Assistance téléphonique",
+        "Modification des contenus",
+        "Référencement pour moteurs de recherche"
+      ]
+    },
+    {
+      "title": "EN COMPLEMENT A NOS SITES",
+      "list": [
+        "Shooting photos Pro àpd de 250€ ( Lieux, Produits, Employés…)",
+        "Création de Logo àpd de 250€",
+        "Rédaction des textes àpd de 150€",
+        "Création de compte Réseaux Sociaux (Facebook, Twitter, Instagram) àpd de 150€",
+        "Référencement optimiser pour Google àpd de 200€/mois",
+        "Modification, Gestion ou Mise à jour du site par nos soins 50€/h",
+        "Formation pour la gestion du site par vos soins 75€/h (min 2h)"
+      ]
+    }
+  ]
+
+}

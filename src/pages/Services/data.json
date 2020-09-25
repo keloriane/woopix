@@ -1,0 +1,18 @@
+{
+  "page-title": "CREATION DE SITE",
+  "page-description": "Woopix créé des <span>sites web</span> utilisant la technologie HTLM5 et CSS3. Nous développons des sites sur une base de template CMS ( WordPress, Joomla, Drupal) ou pouvons développer des sites sur mesure avec Adobe Muse et l’encodage en php ( Beaucoup plus couteux, et généralement pas adapté au PME). Vous trouverez ci-dessous nos différentes formules accompagnées de leurs tarifs. Sur chacune des formules, vous trouverez un ou plusieurs liens d’exemples. Les prix affichés ci-dessous sont tous hors taxes (21%)",
+  "service-list": [
+    {
+      "title": "Site Vitrines",
+      "subtitle": "Àpd de",
+      "price": "1299€",
+      "text": "Le site VITRINE de chez Woopix est adapté aux PME du style Restaurant, Brasserie, Salon de Coiffure, Boulangerie, Sandwicherie, Profession Libérale… Des entreprises qui veulent afficher des galeries photos, des tarifs, ou bien une fiche de réservation, une map, un chat",
+    },
+    {
+      "title": "Site Sur Mesure",
+      "subtitle": "Àpd de",
+      "price": "3499€",
+      "text": "Le site SUR MESURE de chez Woopix est aussi adapté aux PME du style Restaurant, Brasserie, Salon de Coiffure, Boulangerie, Sandwicherie, Profession Libérale… Mais qui souhaitent que nous leur modelons un site à leur image sans template, complètement personnalisé. Il serait développé sur base de code PHP."
+    }
+  ]
+}

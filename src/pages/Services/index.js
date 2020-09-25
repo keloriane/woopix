@@ -1,86 +1,55 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled, {withTheme} from 'styled-components'
 import ServicesItem from "./components/ServiceItem.js";
 import ServiceOption from "./components/ServiceOption";
+import parse from 'html-react-parser';
+import {useRouteMatch} from "react-router-dom"
 
 
 const Services = (props) => {
+    const [data, setData] = useState(null);
+    useEffect(() => {
+
+        let match = window.location.href.split('/')[4]
+
+        fetch(`${process.env.PUBLIC_URL}/data/${match}.json`)
+            .then(response => response.json())
+            .then((dataResponse) => setData(dataResponse))
+    }, []);
+
+    if (!data) {
+        return <p>loading..</p>;
+    }
+
     return (
         <Container>
             <div className={'page-header-bg'}>
                 <div className='page-header'>
-                    <h1 className={'page-title'}>CREATION DE SITE</h1>
-                    <p className={'page-description'}>
-                        Woopix créé des <span>sites web</span> utilisant la technologie HTLM5 et CSS3. Nous développons
-                        des sites sur une base de template CMS ( WordPress, Joomla, Drupal) ou pouvons développer des
-                        sites
-                        sur mesure avec Adobe Muse et l’encodage en php ( Beaucoup plus couteux, et généralement pas
-                        adapté au
-                        PME). Vous trouverez ci-dessous nos différentes formules accompagnées de leurs tarifs. Sur
-                        chacune des
-                        formules, vous trouverez un ou plusieurs liens d’exemples.
-                        Les prix affichés ci-dessous sont tous hors taxes (21%)
-                    </p>
+                    <h1 className={'page-title'}>{data.pageTitle}</h1>
+                    <p className={'page-description'}>{parse(data.pageDescription)}</p>
                 </div>
             </div>
 
             <div className={'sub-container'}>
                 <div className='services-list'>
-                    <ServicesItem
-                        title={'Site Vitrines'}
-                        subtitle={'Àpd de'}
-                        price={'1299€'}
-                        text={`Le site VITRINE de chez Woopix est adapté aux PME du style Restaurant, Brasserie, Salon de 
-                            Coiffure, Boulangerie, Sandwicherie, Profession Libérale… Des entreprises qui veulent 
-                            afficher des galeries photos, des tarifs, ou bien une fiche de réservation, une map, un chat…`}
-                    />
-                    <ServicesItem
-                        title={'Site Sur Mesure'}
-                        subtitle={'Àpd de'}
-                        price={'3499€'}
-                        text={`Le site SUR MESURE de chez Woopix est aussi adapté aux PME du style Restaurant, Brasserie, 
-                            Salon de Coiffure, Boulangerie, Sandwicherie, Profession Libérale… Mais qui souhaitent que nous 
-                            leur modelons un site à leur image sans template, complètement personnalisé. Il serait développé 
-                            sur base de code PHP.`}
-                    />
+                    {data.items.map(item => (
+                        <ServicesItem
+                            title={item.title}
+                            subtitle={item.subtitle}
+                            price={item.price}
+                            text={item.text}
+                        />
+                    ))}
                 </div>
 
                 <div className="option-list">
-                    <ServiceOption
-                        title={'Options Incluses'}
-                        list={[
-                            'Création de site en CMS sur base de Template (WordPress, Joomla ) ou PHP (site sur mesure)',
-                            'L’insertion de Logo, Medias, Texte ( Fournis par vos soins )',
-                            'Une version Responsive ( Smartphone & Tablette)',
-                            'Un référencement naturel sur Google',
-                            'Installation du site sur les moteurs de recherche',
-                            'Demie journée de formation et information'
-                        ]}
-                    />
-
-                    <ServiceOption
-                        title={'Maintenance Standard'}
-                        price={'39€/Mois'}
-                        list={[
-                            'Renouvellement du nom de domaine et hébergement',
-                            'Assistance bug site',
-                            '2 adresses mails personnalisées'
-                        ]}
-                    />
-
-                    <ServiceOption
-                        title={'Maintenance Premium'}
-                        price={'119€/Mois'}
-                        list={[
-                            'Renouvellement du nom de domaine et hébergement',
-                            'Assistance bug site',
-                            '3 adresses mails personnalisées',
-                            'Rapport statistiques trafic du site (analytics)',
-                            'Assistance téléphonique',
-                            'Modification des contenus',
-                            'Référencement pour moteurs de recherche'
-                        ]}
-                    />
+                    {data.options.map(option => (
+                        <ServiceOption
+                            title={option.title}
+                            price={option.price ? option.price : ""}
+                            list={option.list}
+                        />
+                    ))}
                 </div>
             </div>
         </Container>
@@ -151,7 +120,10 @@ padding-top: 170px;
         }  
     }
     .sub-container{
-      flex-direction: row;  
+      flex-direction: row; 
+      .services-list{
+        margin-right: 40px;
+      }
     }
     @media (min-width: 1200px) {}
   }`
