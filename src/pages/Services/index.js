@@ -9,7 +9,7 @@ import {useRouteMatch} from "react-router-dom"
 const Services = (props) => {
     const [data, setData] = useState(null);
     useEffect(() => {
-
+        console.log(props)
         let match = window.location.href.split('/')[4]
 
         fetch(`${process.env.PUBLIC_URL}/data/${match}.json`)
@@ -30,18 +30,20 @@ const Services = (props) => {
                 </div>
             </div>
 
-            <div className={'sub-container'}>
-                <div className='services-list'>
-                    {data.items.map(item => (
-                        <ServicesItem
-                            title={item.title}
-                            subtitle={item.subtitle}
-                            price={item.price}
-                            text={item.text}
-                        />
-                    ))}
-                </div>
 
+            <div className={'sub-container'}>
+                {data.items && (
+                    <div className='services-list'>
+                        {data.items.map(item => (
+                            <ServicesItem
+                                title={item.title}
+                                subtitle={item.subtitle}
+                                price={item.price}
+                                text={item.text}
+                            />
+                        ))}
+                    </div>
+                )}
                 <div className="option-list">
                     {data.options.map(option => (
                         <ServiceOption
@@ -54,7 +56,6 @@ const Services = (props) => {
             </div>
         </Container>
     )
-
 }
 
 export default withTheme(Services)

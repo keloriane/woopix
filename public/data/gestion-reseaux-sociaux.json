@@ -1,0 +1,72 @@
+{
+  "pageTitle": "GESTION DES RESEAUX SOCIAUX",
+  "pageDescription": "Chez Woopix nous sommes constamment à la recherche de solutions afin d’aider notre clientèle dans la gestion et le développement marketing de leur entreprise. A l’heure actuelle, il est évident qu’être présent sur les réseaux sociaux est devenu indispensable.Cette présence est relativement facile pour les grandes enseignes qui ont leurs services marketings internes. Mais pour les PME ( petite & moyenne entreprise), cette présence est extrêmement plus compliquée. En effet, il faut pouvoir mettre en place des campagnes publicitaires, pouvoir faire des montages graphiques sur certaines promotions, faire des retouches photographiques, interagir avec ses clients… Tout cela demande évidemment du temps, et chez les PME le temps est précieux.C’est pourquoi nous avons développé chez Woopix, une section destinée à la gestion de votre image sur les réseaux sociaux. Nous nous occupons de tout. De la création, à la gestion à temps plein de vos comptes Facebook, Twitter, Instagram.Nous vous proposons plusieurs formules et tarifsLes montants affichés ci-dessous sont Hors Taxes ( 21% )",
+  "options": [
+    {
+      "title": "FORMULE PREMIUM",
+      "price": "99€/MOIS",
+      "list": [
+        "Création du compte / Demande de droit de page",
+        "Nomination des administrateurs",
+        "Gestion du compte (redirection automatique du client)",
+        "1 publication par mois ( photos, textes fournies par vos soins)",
+        "1 storie par mois ( photos, textes fournies par vos soins)",
+        "Envoie de vos statistiques mensuellement",
+        "Augmentation du flux de votre page",
+        "Augmentation assurée de 5 Likes sur votre page",
+        "Augmentation assurée de 2 avis et commentaire sur les plateformes"
+      ]
+    },
+    {
+      "title": "FORMULE GOLD",
+      "price": "99€/MOIS",
+      "list": [
+        "Création du compte / Demande de droit de page",
+        "Nomination des administrateurs",
+        "Gestion du compte (redirection automatique du client)",
+        "Gestion de Google Mybusiness",
+        "1 storie par mois ( photos, textes fournies par vos soins)",
+        "1 publication par semaine ( photos, textes fournies par vos soins)",
+        "1 storie par semaine ( photos, textes fournies par vos soins)",
+        "Envoie de vos statistiques mensuellement",
+        "Augmentation du flux de votre page",
+        "Augmentation assurée de 10 Likes sur votre page",
+        "Augmentation assurée de 4 avis sur les plateformes"
+      ]
+    },
+    {
+      "title": "FORMULE DIAMANT",
+      "price": "99€/MOIS",
+      "list": [
+        "Création du compte / Demande de droit de page",
+        "Nomination des administrateurs",
+        "Gestion des comptes ( Facebook, Instagram, Linkedin)",
+        "Réponse interactive et suivi des notifications des clients 7j/7",
+        "Gestion de Google Mybusiness",
+        "2 publications par semaine ( rédaction des textes, photos fournies par vos soins)",
+        "2 stories par semaine ( rédaction des textes, photos fournies par vos soins)",
+        "Envoie de vos statistiques mensuellement",
+        "Augmentation du flux de votre page",
+        "Augmentation assurée de 15 Likes sur votre page",
+        "Augmentation assurée de 6 avis sur les plateformes"
+      ]
+    },
+    {
+      "title": "FORMULE ALL IN",
+      "price": "99€/MOIS",
+      "list": [
+        "Création du compte / Demande de droit de page",
+        "Nomination des administrateurs",
+        "Gestion des comptes ( Facebook, Instagram, Linkedin)",
+        "Réponse interactive et suivi des notifications des clients 7j/7",
+        "Gestion de Google Mybusiness",
+        "2 publications par semaine ( rédactions des textes et photos professionnelles)",
+        "4 stories par semaine ( rédactions des textes et photos professionnelles)",
+        "Envoie de vos statistiques mensuellement",
+        "Augmentation du flux de votre page",
+        "Augmentation assurée de 20 Likes sur votre page",
+        "Augmentation assurée de 8 avis sur les plateformes"
+      ]
+    }
+  ]
+}

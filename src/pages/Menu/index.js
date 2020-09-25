@@ -47,6 +47,9 @@ export const Menu = () => {
           <li className="menu-items">
             <Link to="/contact">Contact</Link>
           </li>
+          <li className="menu-items">
+            <Link to="/gestion-reseaux-sociaux">Réseaux Sociaux</Link>
+          </li>
         </ul>
       </div>
     </MenuContainer>
