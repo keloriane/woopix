@@ -101,7 +101,6 @@ padding-top: 170px;
     .page-header-bg{
        border-left: 10px ${props => props.theme.green} solid;
       .page-header{
-          column-count: 1;
           text-align: left;
           font-weight: 100;
           line-height: 130%;
@@ -115,10 +114,12 @@ padding-top: 170px;
               font-weight: 800;
               font-size: 64px;
               margin-bottom: 60px;
+              line-height: 110%;
               text-transform: uppercase;
               color  :  ${props => props.theme.blue};
           }
           .page-description{
+             column-count: 1;
              span{
                   color :  ${props => props.theme.green}
               }
@@ -144,6 +145,9 @@ padding-top: 170px;
           .page-header{
             column-count: 2;
             text-align: left;
+            .page-description{
+             column-count: 2;
+          }
         }  
     }
     .sub-container{
