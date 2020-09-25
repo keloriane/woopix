@@ -5,7 +5,7 @@ import {createGlobalStyle,ThemeProvider} from "styled-components";
 import Services from './pages/Services'
 import  Home  from './pages/Home';
 import { About } from './pages/About';
-import  Portfolio  from "./pages/Portfolio/";
+import { Portfolio } from "./pages/Portfolio/";
 import { Menu } from "./pages/Menu/";
 import  OurServices  from "./pages/OurServices/";
 
@@ -15,7 +15,6 @@ const theme = {
   green: '#8DC63F',
   blue: '#1B065E'
 };
-
 
 
 function App() {

@@ -15,7 +15,12 @@ const theme = {
   green: '#8DC63F',
   blue: '#1B065E'
 };
-
+const routes =[
+  { path: "/", name: "Home", Component: Home },
+  { path: "/a-propos", name: "Main", Component: About },
+  { path: "/services", name: "Services", Component: Portfolio },
+  { path: "/contact", name: "Contact", Component: Services }
+]
 
 
 function App() {
@@ -24,11 +29,18 @@ function App() {
       <Switch>
         <div className="App">
           <ThemeProvider theme={theme}>
-          <Route exact path="/" component={Home} />
+          {/* <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/portfolio" component={Portfolio} />
           <Route exact path="/services" component={Services} />
-          <Route exact path="/nos-services" component={OurServices} />
+          <Route exact path="/nos-services" component={OurServices} /> */}
+           {routes.map(({ path, Component }) => (
+            <Route key="name" path={path} exact  render={routeProps => <Component {...routeProps} />} >
+              {() => (
+                  <Component  />
+              )}
+            </Route>
+          ))}
           </ThemeProvider>
         </div>
       </Switch>

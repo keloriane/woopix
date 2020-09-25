@@ -123,8 +123,7 @@ const Title = (props) => {
         </div>
         <div className="title">
           <h2 className="text-letter">
-            {props.firstP} </h2>
-            <h2 className="text-letter">{props.secondP}
+            {props.firstP} <br></br>{props.secondP}
           </h2>
         </div>
       </div>

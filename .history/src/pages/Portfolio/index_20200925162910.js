@@ -13,7 +13,7 @@ import {withRouter } from "react-router-dom"
 import "swiper/swiper-bundle.css"
 import SwiperCore from "swiper";
 
- const Portfolio = () => {
+export const Portfolio = () => {
   
   const PortfolioWrapper = styled.div`
     #portfolio {
@@ -165,4 +165,3 @@ import SwiperCore from "swiper";
     </Container>
   );
 };
-export default withRouter(Portfolio)

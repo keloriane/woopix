@@ -11,10 +11,9 @@ const Home = (props) => {
   useEffect(()=>{
     
     homeTl
-    .from('.green-layout',.7,{width:0, transformOrigin:"left"})
-    
-      .fromTo('.home-image',.7,{x:"-100%"},{x:"0%", opacity:1, delay:-.4})
-      .staggerFrom('h1',.3,{y:"70%", opacity:0, delay:-.6},.05)
+      .from('.green-layout',.5,{width:0, transformOrigin:"left"})
+      .fromTo('.home-image',.5,{x:"-100%"},{x:"0%", opacity:1, delay:-.3})
+      .staggerFrom('h1',.3,{y:"100%", opacity:0, delay:-.3},.1)
     homeTl.play()
     },[])
     

@@ -211,8 +211,8 @@ const aboutTl = gsap.timeline({paused: true})
 
      aboutTl
      .from("#about",.8,{ opacity:0})
-     .staggerFrom(".chars",.3,{y:"100%", opacity:0},.03)
-     .staggerFrom(".inner-text",.5,{y:"100%", opacity:0, delay:-.4},.2)
+     .staggerFrom(".chars",.2,{y:"100%", opacity:0},.07)
+     .staggerFrom(".inner-text",1,{y:"100%", opacity:0},.2)
 
         aboutTl.play()
     }, [])

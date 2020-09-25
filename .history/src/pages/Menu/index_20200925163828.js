@@ -38,10 +38,10 @@ const Menu = (props) => {
             <Link to="/" onClick={props.animation1}>Woopix</Link>
           </li>
           <li className="menu-items">
-             <Link to="/about" onClick={props.animation3}>A propos</Link> 
+             <Link to="/services" onClick={props.animation2}>Site</Link>
           </li>
           <li className="menu-items">
-             <Link to="/services" onClick={props.animation2}>Site</Link>
+             <Link to="/about" onClick={props.animation3}>A propos</Link> 
           </li>
           <li className="menu-items">
             <Link to="/portfolio" onClick={props.animation4}>Réalisations</Link>

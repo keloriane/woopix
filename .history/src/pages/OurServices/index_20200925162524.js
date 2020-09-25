@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import CallToAction from "./../../components/CallToAction/";
 import Title from "./../../components/Title/Title.js";
 import "swiper/swiper-bundle.css";
-import {withRouter} from "react-router-dom"
+
 const OurServices = () => {
 
 

@@ -3,10 +3,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Container from "./../../global/Container";
 import Title from "../../components/Title/Title";
-import Menu from "./../Menu/"
 import gsap from "gsap"
 
-export const About = (props) => {
+export const About = () => {
   const AboutWrapper = styled.div`
   .text-letter{
     overflow: hidden;
@@ -187,7 +186,6 @@ export const About = (props) => {
     }
   `;
 
-const aboutTl = gsap.timeline({paused: true})
   useEffect(() => {
         
         //Split each word from a tag
@@ -209,32 +207,14 @@ const aboutTl = gsap.timeline({paused: true})
         }); 
         let chars = document.querySelectorAll('.chars')
 
+     const aboutTl = gsap.timeline()
      aboutTl
-     .from("#about",.8,{ opacity:0})
-     .staggerFrom(".chars",.3,{y:"100%", opacity:0},.03)
-     .staggerFrom(".inner-text",.5,{y:"100%", opacity:0, delay:-.4},.2)
-
-        aboutTl.play()
+     .from("#about",1,{ opacity:0})
+     .staggerFrom(".chars",.2,{y:"100%", opacity:0},.07)
     }, [])
-
-    const changePage=(e, destination) => {
-      e.preventDefault();
-      aboutTl.reverse();
-      const timelineDuration = aboutTl.duration()*1000;
-      setTimeout(() => {
-          props.history.push(destination);
-        }, timelineDuration);
-    }
   return (
     <Container>
       <AboutWrapper>
-      <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
-        />
         <div id="about">
           <div className="about-wrapper">
           <Title num="01" firstP="à propos" secondP="de woopix" className="text-letter"  />

@@ -6,7 +6,7 @@ import Title from "../../components/Title/Title";
 import Menu from "./../Menu/"
 import gsap from "gsap"
 
-export const About = (props) => {
+export const About = () => {
   const AboutWrapper = styled.div`
   .text-letter{
     overflow: hidden;
@@ -187,11 +187,11 @@ export const About = (props) => {
     }
   `;
 
-const aboutTl = gsap.timeline({paused: true})
   useEffect(() => {
         
         //Split each word from a tag
         let titleArray = [];
+        const aboutTl = gsap.timeline({paused: true})
         function splitWord(word) {
             return [...word]
             .map(letter => `<span class="chars">${letter}</span>`)
@@ -211,10 +211,8 @@ const aboutTl = gsap.timeline({paused: true})
 
      aboutTl
      .from("#about",.8,{ opacity:0})
-     .staggerFrom(".chars",.3,{y:"100%", opacity:0},.03)
-     .staggerFrom(".inner-text",.5,{y:"100%", opacity:0, delay:-.4},.2)
+     .staggerFrom(".chars",.2,{y:"100%", opacity:0},.07)
 
-        aboutTl.play()
     }, [])
 
     const changePage=(e, destination) => {

@@ -17,7 +17,6 @@ const theme = {
 };
 
 
-
 function App() {
   return (
     <HashRouter basename="/woopix"> 
