@@ -6,8 +6,6 @@ import styled from "styled-components";
 import slide1 from "./../../assets/img/slide1.png";
 import slide2 from "./../../assets/img/slide2.png";
 import slide3 from "./../../assets/img/slide3.png";
-import slide4 from "./../../assets/img/slide4.png";
-import slide5 from "./../../assets/img/slide5.png";
 import {Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css"
 import SwiperCore from "swiper";
@@ -47,9 +45,9 @@ export const Portfolio = () => {
               display: flex;
               width: 100vw;
               overflow: hidden;
-              .swiper-slide {
-                min-width: 160px;
-                max-width: 160.75px;
+              .slider-item {
+                margin-left: 7.5px;
+                margin-right: 7.5px;
               }
             }
           }
@@ -66,18 +64,17 @@ export const Portfolio = () => {
           height: 1000px;
           width: 100%;
           max-width: 674px;
-          justify-content: space-around;
-          margin: 0 auto;
+          justify-content: center;
+
           .portfolio-container {
             .green-background {
-              width: 100%;
+              width: 607px;
               height: 380px;
               right: 0;
-              top: 40%;
+              top: 20%;
               position: absolute;
               background-color: ${(props) => props.theme.green};
               z-index: -1;
-
             }
           }
           .portfolio-slider {
@@ -85,29 +82,6 @@ export const Portfolio = () => {
           }
         }
       }
-    }
-
-    @media screen and (min-width: 992px){
-      #portfolio{
-        
-        .portfolio-wrapper{
-          max-width: 1025px;
-          display: flex;
-          justify-self: flex-end;
-          justify-content: center;
-          .portfolio-container{
-            .green-background{
-              width: 60%;
-            }
-          }
-
-        }
-
-      }
-    }
-    img{
-      height: 100%;
-      max-height: 267px;
     }
   `;
   return (
@@ -121,12 +95,12 @@ export const Portfolio = () => {
               <div className="portfolio-slider">
                 <Swiper 
                 slidesPerView={4}
+                spaceBetween={30}
                 centeredSlides={true} 
-                spaceBetween ={30}
                 className="slider-items"
                 
                 >
-                  <SwiperSlide className="slider-item">
+                  <SwiperSlide>
 
                       <img src={slide1} alt="" />
                    </SwiperSlide>
@@ -140,11 +114,11 @@ export const Portfolio = () => {
                    </SwiperSlide>
                   <SwiperSlide>
 
-                      <img src={slide4} alt="" />
+                      <img src={slide1} alt="" />
                    </SwiperSlide>
                   <SwiperSlide>
 
-                      <img src={slide5} alt="" />
+                      <img src={slide2} alt="" />
                    </SwiperSlide>
                   <SwiperSlide>
 

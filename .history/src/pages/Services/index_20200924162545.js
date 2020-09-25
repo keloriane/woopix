@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import styled, {withTheme} from 'styled-components'
 import ServicesItem from "./components/ServiceItem.js";
-import ServiceOption from "./components/ServiceOption";
 
 
 const Services = (props) => {
@@ -26,6 +25,8 @@ const Services = (props) => {
 
             <div className={'sub-container'}>
                 <div className='services-list'>
+                   
+                   
                     <ServicesItem
                         title={'Site Vitrines'}
                         subtitle={'Àpd de'}
@@ -46,41 +47,7 @@ const Services = (props) => {
                 </div>
 
                 <div className="option-list">
-                    <ServiceOption
-                        title={'Options Incluses'}
-                        list={[
-                            'Création de site en CMS sur base de Template (WordPress, Joomla ) ou PHP (site sur mesure)',
-                            'L’insertion de Logo, Medias, Texte ( Fournis par vos soins )',
-                            'Une version Responsive ( Smartphone & Tablette)',
-                            'Un référencement naturel sur Google',
-                            'Installation du site sur les moteurs de recherche',
-                            'Demie journée de formation et information'
-                        ]}
-                    />
-
-                    <ServiceOption
-                        title={'Maintenance Standard'}
-                        price={'39€/Mois'}
-                        list={[
-                            'Renouvellement du nom de domaine et hébergement',
-                            'Assistance bug site',
-                            '2 adresses mails personnalisées'
-                        ]}
-                    />
-
-                    <ServiceOption
-                        title={'Maintenance Premium'}
-                        price={'119€/Mois'}
-                        list={[
-                            'Renouvellement du nom de domaine et hébergement',
-                            'Assistance bug site',
-                            '3 adresses mails personnalisées',
-                            'Rapport statistiques trafic du site (analytics)',
-                            'Assistance téléphonique',
-                            'Modification des contenus',
-                            'Référencement pour moteurs de recherche'
-                        ]}
-                    />
+                   
                 </div>
             </div>
         </Container>
@@ -101,6 +68,7 @@ padding-top: 170px;
     .page-header-bg{
        border-left: 10px ${props => props.theme.green} solid;
       .page-header{
+          column-count: 1;
           text-align: left;
           font-weight: 100;
           line-height: 130%;
@@ -114,12 +82,10 @@ padding-top: 170px;
               font-weight: 800;
               font-size: 64px;
               margin-bottom: 60px;
-              line-height: 110%;
               text-transform: uppercase;
               color  :  ${props => props.theme.blue};
           }
           .page-description{
-             column-count: 1;
              span{
                   color :  ${props => props.theme.green}
               }
@@ -145,9 +111,6 @@ padding-top: 170px;
           .page-header{
             column-count: 2;
             text-align: left;
-            .page-description{
-             column-count: 2;
-          }
         }  
     }
     .sub-container{

@@ -7,14 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .swiper-container{
+  .swiper-wrapper{
+    display: flex;
+justify-content: space-around;
+    .swiper-slide{
+      
+    }
+  }
 }
-    .swiper-wrapper{
-      display: flex;
-  justify-content: space-around;
-}
-        .swiper-slide{
-          
-        }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

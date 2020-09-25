@@ -47,9 +47,8 @@ export const Portfolio = () => {
               display: flex;
               width: 100vw;
               overflow: hidden;
-              .swiper-slide {
+              .slider-item {
                 min-width: 160px;
-                max-width: 160.75px;
               }
             }
           }

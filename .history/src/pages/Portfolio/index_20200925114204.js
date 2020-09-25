@@ -48,8 +48,7 @@ export const Portfolio = () => {
               width: 100vw;
               overflow: hidden;
               .swiper-slide {
-                min-width: 160px;
-                max-width: 160.75px;
+                width: 130px;
               }
             }
           }

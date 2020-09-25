@@ -48,8 +48,8 @@ export const Portfolio = () => {
               width: 100vw;
               overflow: hidden;
               .swiper-slide {
-                min-width: 160px;
-                max-width: 160.75px;
+                margin-left: 7.5px;
+                margin-right: 7.5px;
               }
             }
           }
@@ -92,21 +92,15 @@ export const Portfolio = () => {
         
         .portfolio-wrapper{
           max-width: 1025px;
+          height: 555px;
           display: flex;
           justify-self: flex-end;
-          justify-content: center;
-          .portfolio-container{
-            .green-background{
-              width: 60%;
-            }
-          }
 
         }
-
       }
     }
     img{
-      height: 100%;
+      width: 100%;
       max-height: 267px;
     }
   `;
@@ -122,7 +116,6 @@ export const Portfolio = () => {
                 <Swiper 
                 slidesPerView={4}
                 centeredSlides={true} 
-                spaceBetween ={30}
                 className="slider-items"
                 
                 >
