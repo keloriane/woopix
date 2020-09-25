@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
-export const Menu = () => {
+const Menu = (props) => {
   const MenuContainer = styled.div`
     .menu {
       width: 100%;
@@ -17,6 +17,8 @@ export const Menu = () => {
             font-weight: 600;
             font-size: 20px;
             line-height: 26px;
+            /* identical to box height */
+            font-family: "Futura PT";
             font-style: normal;
             color: ${(props) => props.theme.blue};
 
@@ -33,19 +35,19 @@ export const Menu = () => {
       <div className="menu">
         <ul className="main-menu">
           <li className="menu-items">
-            <Link to="/">Woopix</Link>
+            <Link to="/" onClick={props.animation1}>Woopix</Link>
           </li>
           <li className="menu-items">
-             <Link to="/tarifs-sites">Site</Link>
+             <Link to="/tarifs-sites" >Site</Link>
           </li>
           <li className="menu-items">
-             <Link to="/about">A propos</Link> 
+             <Link to="/about" onClick={props.animation3}>A propos</Link>
           </li>
           <li className="menu-items">
-            <Link to="/portfolio">Réalisations</Link>
+            <Link to="/portfolio" onClick={props.animation4}>Réalisations</Link>
           </li>
           <li className="menu-items">
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact" onClick={props.animation5}>Contact</Link>
           </li>
           <li className="menu-items">
             <Link to="/gestion-reseaux-sociaux">Réseaux Sociaux</Link>
@@ -56,4 +58,4 @@ export const Menu = () => {
   );
 };
 
-export default Menu;
+export default withRouter(Menu);
