@@ -10,16 +10,16 @@ const Home = (props) => {
   let homeTl = gsap.timeline({ paused: true });
   useEffect(() => {
     homeTl
-      .fromTo(".home", .5, { opacity: 0 }, { opacity: 1 })
+      .fromTo(".home", 1, { opacity: 0 }, { opacity: 1 })
       .from(".green-layout", 0.7, { width: 0, transformOrigin: "left" })
 
       .fromTo(
         ".home-image",
         0.7,
-        { x: "-100%",  },
-        { x: "0%", delay: -0.4 }
+        { x: "-100%", opacity: 0 },
+        { x: "0%", opacity: 1, delay: -0.4 }
       )
-      .staggerFrom("h1", 0.7, { y: "100%", opacity: 0, delay: -0.6 }, 0.05);
+      .staggerFrom("h1", 0.3, { y: "70%", opacity: 0, delay: -0.6 }, 0.05);
     homeTl.play();
   }, []);
 
@@ -179,11 +179,9 @@ const HomeContainer = styled.div`
         width: 100%;
         position: relative;
         overflow: hidden;
-        display: flex;
-        justify-content: center;
         .bg-green {
           display: block;
-          background-color: ${props => props.theme.green};
+          background-color: #8dc63f;
           width: 367px;
           height: 450px;
           position: absolute;

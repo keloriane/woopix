@@ -1,6 +1,5 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import styled from "styled-components"
-import gsap from "gsap"
 
 const Title = (props) => {
     const TitleMain = styled.div`
@@ -115,29 +114,9 @@ const Title = (props) => {
           }
     }
     `
-    useEffect(()=>{
-        //Split each word from a tag
-        let titleArray = [];
-        function splitWord(word) {
-            return [...word]
-            .map(letter => `<span class="chars">${letter}</span>`)
-            .join("");
-        }
-        const words = [...document.querySelectorAll(".text-letter")];
-        // eslint-disable-next-line
-        words.map(word => {
-            word.innerHTML = splitWord(word.textContent);
-            const newLetter = [...word.querySelectorAll(".chars")]; 
-            // eslint-disable-next-line
-            newLetter.map(letter => {
-                titleArray.push(letter);
-            });
-        }); 
-        
-      
-    },[])
     return (
-        <TitleMain >
+        <TitleMain className="Title">
+
         <div className="main-title">
         <div className="number-title">
             <h2>{props.num}</h2>

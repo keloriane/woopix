@@ -8,7 +8,7 @@ import {About} from './pages/About';
 import Portfolio from "./pages/Portfolio/";
 import {Menu} from "./pages/Menu/";
 import  OurServices  from "./pages/OurServices/";
-import Contact from "./pages/Contact/"
+
 
 const theme = {
     green: '#8DC63F',
@@ -29,7 +29,6 @@ function App() {
           <Route exact path="/tarifs-sites" component={() => <Services itemsAvailable={true} />}/>
           <Route exact path="/gestion-reseaux-sociaux" component={Services}/>
           <Route exact path="/nos-services" component={OurServices} />
-          <Route exact path="/contact" component={Contact} />
           </ThemeProvider>
         </div>
       </Switch>

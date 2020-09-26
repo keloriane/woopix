@@ -13,12 +13,7 @@ const Home = (props) => {
       .fromTo(".home", .5, { opacity: 0 }, { opacity: 1 })
       .from(".green-layout", 0.7, { width: 0, transformOrigin: "left" })
 
-      .fromTo(
-        ".home-image",
-        0.7,
-        { x: "-100%",  },
-        { x: "0%", delay: -0.4 }
-      )
+      .from(".home-image",0.7,{x:"-100%", delay:-.3})
       .staggerFrom("h1", 0.7, { y: "100%", opacity: 0, delay: -0.6 }, 0.05);
     homeTl.play();
   }, []);

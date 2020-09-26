@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import Title from "../../components/Title/Title";
 import contactImage from "./../../assets/img/contact-image.png";
-import Footer from "./../Footer/";
-import Menu from "./../Menu/"
-import gsap from "gsap";
 
-const Contact = (props) => {
+const Contact = () => {
   const ContactWrapper = styled.div`
     #contact {
       width: 100vw;
@@ -70,11 +67,11 @@ const Contact = (props) => {
           max-width: 354px;
           height: 558px;
           margin: auto;
-          .image-container {
-            img {
-              width: 100%;
-              max-width: 354px;
-            }
+          .image-container{
+              img{
+                width: 100%;
+                max-width: 354px;
+              }
           }
           .title {
             max-width: 300px;
@@ -153,124 +150,37 @@ const Contact = (props) => {
         }
       }
     }
-    @media screen and (min-width: 960px) {
-      #contact {
-        .contact-wrapper {
-          flex-direction: row;
-          width: 100%;
-          max-width: 1260px;
-          justify-content: space-between;
-          .image-container {
-            overflow: hidden;
-            position: relative;
-            max-width: 649px;
-            width: 100%;
-            top: 7%;
-            height: 525px;
-            img {
-              position: absolute;
-              top: 7%;
-              width: 100%;
+    @media screen and (min-width: 960px){
+        #contact{
+            .contact-wrapper{
+                flex-direction: row;
             }
-          }
-          .contact-title {
-            width: 637px;
-            position: absolute;
-            right: 0;
-            top: 0;
-          }
-          .main-title {
-            width: 500px;
-            position: absolute;
-            right: 205px;
-            top: 11%;
-          }
-          .text-container {
-            width: 100%;
-            max-width: 474px;
-            height: 124px;
-            p {
-              font-style: normal;
-              font-weight: normal;
-              font-size: 26px;
-              line-height: 160.2%;
-              /* or 42px */
-
-              color: rgba(0, 0, 0, 0.6);
-            }
-          }
-          .time-opening {
-            width: 214px;
-            height: 84px;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 26px;
-            line-height: 160.2%;
-            /* or 42px */
-
-            color: rgba(0, 0, 0, 0.6);
-          }
         }
-      }
     }
   `;
-  let ContactTl = gsap.timeline({ paused: true });
-  useEffect(() => {
-    ContactTl
-    .from("image-container, img", .6, { right: "100%" })
-    .staggerFrom(".chars", 0.3, { y: "100%", opacity: 0, delay:-.3 }, 0.03)
-    .staggerFrom("p", 0.3, { y: "100%", opacity: 0, delay:-.3 }, 0.03);
 
-    ContactTl.play();
-  }, []);
-
-  const changePage=(e, destination) => {
-    e.preventDefault();
-    ContactTl.reverse();
-    const timelineDuration = ContactTl.duration()*1000;
-    setTimeout(() => {
-        props.history.push(destination);
-      }, timelineDuration);
-  }
   return (
-    <>
-     <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
-        />
-      <ContactWrapper>
-        <div id="contact">
-          <div className="contact-wrapper">
-            <Title
-             
-              firstP="prenez"
-              secondP="rendez-vous"
-              className="contact-title"
-            />
+    <ContactWrapper>
+      <div id="contact">
+        <div className="contact-wrapper">
+          <Title num="04" firstP="prenez" secondP="rendez-vous" />
 
-            <div className="image-container">
-              <img src={contactImage} alt="" />
-            </div>
-            <div className="text-wrapper">
-              <div className="text-container">
-                <p>
-                  Rutrum id venenatis gravida porttitor mauris nunc metus.
-                  Aliquet dictumst quam sed turpis velit dignissim.
-                </p>
-              </div>
-              <div className="time-opening">
-                <p className="day">LUNDI – VENDREDI</p>
-                <p className="time">10:00 ~ 18.00</p>
-              </div>
-            </div>
+          <div className="image-container">
+            <img src={contactImage} alt="" />
+          </div>
+          <div className="text-container">
+            <p>
+              Rutrum id venenatis gravida porttitor mauris nunc metus. Aliquet
+              dictumst quam sed turpis velit dignissim.
+            </p>
+          </div>
+          <div className="time-opening">
+            <p className="day">LUNDI – VENDREDI</p>
+            <p className="time">10:00 ~ 18.00</p>
           </div>
         </div>
-      </ContactWrapper>
-      <Footer />
-    </>
+      </div>
+    </ContactWrapper>
   );
 };
 
