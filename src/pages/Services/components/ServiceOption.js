@@ -4,9 +4,9 @@ import styled,{withTheme} from 'styled-components'
 const ServiceOption = ({title, price, list}) => {
     return (
         <Container>
-            <h2 className='option-title'>{title}</h2>
-            {price && (<h3 className='option-price'>{price}</h3>)}
-            <ol className='option-list'>
+            <h2 className='option-item-title'>{title}</h2>
+            {price && (<h3 className='option-item-price'>{price}</h3>)}
+            <ol className='option-item-list'>
                 {list.map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
@@ -34,18 +34,18 @@ background:  ${props => props.theme.blue};
 color:white;
 margin-bottom: 20px;
 padding: 36px;
-font-family: 'Futura PT';
-    .option-title{
+    .option-item-title{
+      line-height: 150%;
       font-weight: 600;
       font-size: 36px;
       margin-bottom: ${props => props.price ? '0px' : '10px' };};
     }
-    .option-price{
+    .option-item-price{
       font-weight: 600;
       font-size: 36px;
       color:  ${props => props.theme.green};
     }
-    .option-list{
+    .option-item-list{
       margin-top: 30px;
       li{
         font-weight: 100;
@@ -57,8 +57,6 @@ font-family: 'Futura PT';
       li:before {
         content: "+";
         padding-right: 5px;
-        font-family: Futura PT;
-        font-style: normal;
         font-weight: 600;
         font-size: 24px;
         line-height: 31px;
@@ -67,9 +65,7 @@ font-family: 'Futura PT';
     }
     @media (min-width: 576px) {}
     @media (min-width: 768px) {}
-    @media (min-width: 992px) {
-      width: 30vw;
-    }
+    @media (min-width: 992px) {}
     @media (min-width: 1200px) {}
 `;
 

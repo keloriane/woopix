@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import styled, {withTheme} from 'styled-components'
+import styled, {withTheme,css} from 'styled-components'
 import ServicesItem from "./components/ServiceItem.js";
 import ServiceOption from "./components/ServiceOption";
 import parse from 'html-react-parser';
@@ -68,8 +68,10 @@ font-size: 1.5em;
 text-align: center;
 font-family: "Futura PT", sans-serif;
 padding-top: 170px;
+
     .page-header-bg{
        border-left: 10px ${props => props.theme.green} solid;
+       padding: 20px;
       .page-header{
           text-align: left;
           font-weight: 100;
@@ -98,7 +100,7 @@ padding-top: 170px;
     }
     
     .sub-container{
-      max-width: 1025px;
+      max-width: 1200px;
       margin:  100px auto 0;
       display: flex;  
       flex-direction: column;  
@@ -108,23 +110,30 @@ padding-top: 170px;
     }
     
     @media (min-width: 576px) {}
-    @media (min-width: 768px) {}
-    @media (min-width: 992px) { 
-      text-align: left;
-        .page-header-bg{
-          .page-header{
-            column-count: 2;
-            text-align: left;
-            .page-description{
-             column-count: 2;
+    @media (min-width: 768px) {
+        text-align: left;
+            .page-header-bg{
+              .page-header{
+                column-count: 2;
+                text-align: left;
+                .page-description{
+                 column-count: 2;
+              }
+            }  
+        }
+        .sub-container{
+          flex-direction: row; 
+          .services-list{
+            margin-right: 40px;
           }
-        }  
+          .option-list{    
+            ${props => !props.itemsAvailable && css`
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-column-gap: 20px;
+            `
+          }
     }
-    .sub-container{
-      flex-direction: row; 
-      .services-list{
-        margin-right: 40px;
-      }
-    }
-    @media (min-width: 1200px) {}
+    @media (min-width: 992px) {}
+    @media (min-width: 1200px){}
   }`
