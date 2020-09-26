@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Title from "../../components/Title/Title";
 import contactImage from "./../../assets/img/contact-image.png";
 import Footer from "./../Footer/";
-import Menu from "./../Menu/"
 import gsap from "gsap";
 
 const Contact = (props) => {
@@ -227,25 +226,18 @@ const Contact = (props) => {
   const changePage=(e, destination) => {
     e.preventDefault();
     ContactTl.reverse();
-    const timelineDuration = ContactTl.duration()*1000;
+    const timelineDuration = ContactTL.duration()*1000;
     setTimeout(() => {
         props.history.push(destination);
       }, timelineDuration);
   }
   return (
     <>
-     <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
-        />
       <ContactWrapper>
         <div id="contact">
           <div className="contact-wrapper">
             <Title
-             
+              num="04"
               firstP="prenez"
               secondP="rendez-vous"
               className="contact-title"

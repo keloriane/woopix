@@ -133,7 +133,7 @@ const Title = (props) => {
                 titleArray.push(letter);
             });
         }); 
-        
+        let chars = document.querySelectorAll('.chars')
       
     },[])
     return (

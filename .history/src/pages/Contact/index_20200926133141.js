@@ -3,10 +3,9 @@ import styled from "styled-components";
 import Title from "../../components/Title/Title";
 import contactImage from "./../../assets/img/contact-image.png";
 import Footer from "./../Footer/";
-import Menu from "./../Menu/"
 import gsap from "gsap";
 
-const Contact = (props) => {
+const Contact = () => {
   const ContactWrapper = styled.div`
     #contact {
       width: 100vw;
@@ -216,36 +215,20 @@ const Contact = (props) => {
   `;
   let ContactTl = gsap.timeline({ paused: true });
   useEffect(() => {
-    ContactTl
-    .from("image-container, img", .6, { right: "100%" })
-    .staggerFrom(".chars", 0.3, { y: "100%", opacity: 0, delay:-.3 }, 0.03)
-    .staggerFrom("p", 0.3, { y: "100%", opacity: 0, delay:-.3 }, 0.03);
+    ContactTl.staggerFrom(".chars", 0.3, { y: "100%", opacity: 0 }, 0.03)
+      .from("image-container, img", 1, { right: "100%", delay: -.4 })
+      .staggerFrom("p", 0.3, { y: "100%", opacity: 0 }, 0.03);
 
     ContactTl.play();
   }, []);
 
-  const changePage=(e, destination) => {
-    e.preventDefault();
-    ContactTl.reverse();
-    const timelineDuration = ContactTl.duration()*1000;
-    setTimeout(() => {
-        props.history.push(destination);
-      }, timelineDuration);
-  }
   return (
     <>
-     <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
-        />
       <ContactWrapper>
         <div id="contact">
           <div className="contact-wrapper">
             <Title
-             
+              num="04"
               firstP="prenez"
               secondP="rendez-vous"
               className="contact-title"
