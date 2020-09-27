@@ -25,7 +25,9 @@ export default withTheme(ServicesItem)
 
 const Container = styled.div`
 margin-bottom: 50px;
-font-family: 'Futura PT';
+padding: 20px;
+max-width: 577px;
+width: 100%;
     .service-item-title{
       font-style: normal;
       font-weight: 600;
@@ -50,13 +52,9 @@ font-family: 'Futura PT';
         font-weight: 100;
         margin-top: 30px;
     }
-    @media (max-width: 576px) {
-        
-    }
-    @media (min-width: 768px) {  }
-    @media (min-width: 992px) { 
-        width: 30vw;
-    }
-    @media (min-width: 1200px) {  }
+    @media (min-width: 576px) {}
+    @media (min-width: 768px) {}
+    @media (min-width: 992px) {}
+    @media (min-width: 1200px) {}
 `;
 

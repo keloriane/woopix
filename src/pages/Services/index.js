@@ -1,18 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import styled, {withTheme} from 'styled-components'
+import styled, {withTheme, css} from 'styled-components'
 import ServicesItem from "./components/ServiceItem.js";
 import ServiceOption from "./components/ServiceOption";
 import parse from 'html-react-parser';
-import {useRouteMatch} from "react-router-dom"
+import Menu from "../Menu";
 
 
 const Services = (props) => {
     const [data, setData] = useState(null);
     useEffect(() => {
-        console.log(props)
-        let match = window.location.href.split('/')[4]
-
-        fetch(`${process.env.PUBLIC_URL}/data/${match}.json`)
+        let path = window.location.href.split('/')[4]
+        fetch(`${process.env.PUBLIC_URL}/data/${path}.json`)
             .then(response => response.json())
             .then((dataResponse) => setData(dataResponse))
     }, []);
@@ -22,7 +20,8 @@ const Services = (props) => {
     }
 
     return (
-        <Container>
+        <Container gridDisplayed={props.gridDisplayed}>
+            <div className="bg"/>
             <div className={'page-header-bg'}>
                 <div className='page-header'>
                     <h1 className={'page-title'}>{data.pageTitle}</h1>
@@ -62,21 +61,23 @@ export default withTheme(Services)
 
 
 const Container = styled.div`
-height:100%;
-width:100%;
 font-size: 1.5em;
 text-align: center;
 font-family: "Futura PT", sans-serif;
 padding-top: 170px;
+    .bg{
+      display: none;
+    }
     .page-header-bg{
        border-left: 10px ${props => props.theme.green} solid;
+       padding: 20px;
       .page-header{
           text-align: left;
           font-weight: 100;
           line-height: 130%;
           display: flex;
           flex-direction: column;
-          max-width: 1025px;
+          max-width: 1200px;
           margin: 0 auto;
           .page-title{
               text-align: left;
@@ -85,6 +86,7 @@ padding-top: 170px;
               font-size: 64px;
               margin-bottom: 60px;
               line-height: 110%;
+              max-width: 1000px;
               text-transform: uppercase;
               color  :  ${props => props.theme.blue};
           }
@@ -98,33 +100,52 @@ padding-top: 170px;
     }
     
     .sub-container{
-      max-width: 1025px;
+      max-width: 1200px;
       margin:  100px auto 0;
-      display: flex;  
-      flex-direction: column;  
+       display: grid;
+       grid-template-columns: 1fr;
       .services-list{
         margin-right: 40px;
       }
     }
     
     @media (min-width: 576px) {}
-    @media (min-width: 768px) {}
-    @media (min-width: 992px) { 
-      text-align: left;
-        .page-header-bg{
-          .page-header{
-            column-count: 2;
-            text-align: left;
-            .page-description{
-             column-count: 2;
+    @media (min-width: 768px) {
+        text-align: left;
+        .bg{
+          display: block;
+          background: #fcfcfc;
+          width: 75%;
+          height: 1600px;
+          position:absolute;
+          top: 100px;
+          z-index: -1;
+        }
+            .page-header-bg{
+              .page-header{
+                column-count: 2;
+                text-align: left;
+                .page-description{
+                 column-count: 2;
+              }
+            }  
+        }
+        .sub-container{
+           display: grid;
+           grid-template-columns: ${props => props.gridDisplayed ? '1fr' : '1fr 1fr'} ;
+           grid-column-gap: 20px;
+          .services-list{
+            margin-right: 40px;
           }
-        }  
+          .option-list{    
+                ${props => props.gridDisplayed && css`
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-column-gap: 20px;`
+}
+          }
+        }
     }
-    .sub-container{
-      flex-direction: row; 
-      .services-list{
-        margin-right: 40px;
-      }
-    }
-    @media (min-width: 1200px) {}
+    @media (min-width: 992px) {}
+    @media (min-width: 1200px){}
   }`
