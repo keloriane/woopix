@@ -21,7 +21,7 @@ const Menu = (props) => {
             font-family: "Futura PT";
             font-style: normal;
             color: ${(props) => props.theme.blue};
-
+ 
             &:hover {
               color: ${(props) => props.theme.green};
             }

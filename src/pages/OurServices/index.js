@@ -1,18 +1,17 @@
-import React,{useState} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from "swiper/react";
+import {Swiper, SwiperSlide} from "swiper/react";
 import CallToAction from "./../../components/CallToAction/";
 import Title from "./../../components/Title/Title.js";
 import "swiper/swiper-bundle.css";
 import {withRouter} from "react-router-dom"
-const OurServices = () => {
+
+const OurServices = (props) => {
 
 
-    const [service , setService] = useState({
-        
-    })
+    const [service, setService] = useState({})
 
-  const ServiceWrapper = styled.div`
+    const ServiceWrapper = styled.div`
     #our-service {
       font-family: "Futura PT";
       width: 100vw;
@@ -104,9 +103,51 @@ const OurServices = () => {
         }
       }
     }
+    
     @media screen and (min-width: 992px) {
         #our-service{
+          display: flex;
+          align-items: center;
             .services{
+              width: 970px;
+              margin: auto;
+              display: flex;
+              align-items: center;
+              
+              .service-links-container{
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+
+                  .link-container{
+                     width: 420px;
+                  ul{
+                    ol{
+                      font-style: normal;
+                      font-weight: 600;
+                      font-size: 20px;
+                      line-height: 26px;
+                      color: #000000;
+                      cursor: pointer;
+                      &:hover{
+                      color: ${props => props.theme.green};
+                      }
+                    }
+                  }
+                }
+                .text-container{
+                  width: 100%;
+                  max-width: 465px;
+                  p{
+                  font-style: normal;
+                  font-weight: normal;
+                  font-size: 20px;
+                  line-height: 160.2%;
+                  color: rgba(0, 0, 0, 0.6);
+                  }
+                }
+                
+              }
                 #mobile-slider{
                     display: none;
                 }
@@ -122,137 +163,148 @@ const OurServices = () => {
       width: 40%;
     }    */
   `;
-  return (
-    <ServiceWrapper>
-      <div id="our-service">
-        <div className="services">
-          <Title num="02" firstP="nos" secondP="services" />
-          <Swiper 
-          slidesPerView={2} 
-          className="slider-container"
-          id="mobile-slider"
-          spaceBetween={50}
-          >
-            <SwiperSlide>
-            
-              <div className="slider-title">
-                <h3>01 Gestion des réseaux sociaux</h3>
-              </div>
-              <div className="slider-text">
-                <p>
-                  Peu d’indépendants prennent conscience à quel point il est
-                  important de posséder un site internet aujourd’hui. En effet,
-                  la plupart des gens se renseignent sur l’entreprise via
-                  internet avant même d’être client. Il est probablement aussi
-                  indispensable qu’un numéro de téléphone. Chez Woopix nous
-                  développons pour votre entreprise des sites de qualité à coût
-                  raisonnable. Nous avons un taux de satisfactions inégalable
-                  par nos concurrents.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-title">
-                <h3>02 Gestion des réseaux sociaux</h3>
-              </div>
-              <div className="slider-text">
-                <p>
-                  Peu d’indépendants prennent conscience à quel point il est
-                  important de posséder un site internet aujourd’hui. En effet,
-                  la plupart des gens se renseignent sur l’entreprise via
-                  internet avant même d’être client. Il est probablement aussi
-                  indispensable qu’un numéro de téléphone. Chez Woopix nous
-                  développons pour votre entreprise des sites de qualité à coût
-                  raisonnable. Nous avons un taux de satisfactions inégalable
-                  par nos concurrents.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-title">
-                <h3>03 Gestion des réseaux sociaux</h3>
-              </div>
-              <div className="slider-text">
-                <p>
-                  Peu d’indépendants prennent conscience à quel point il est
-                  important de posséder un site internet aujourd’hui. En effet,
-                  la plupart des gens se renseignent sur l’entreprise via
-                  internet avant même d’être client. Il est probablement aussi
-                  indispensable qu’un numéro de téléphone. Chez Woopix nous
-                  développons pour votre entreprise des sites de qualité à coût
-                  raisonnable. Nous avons un taux de satisfactions inégalable
-                  par nos concurrents.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-title">
-                <h3>03 Gestion des réseaux sociaux</h3>
-              </div>
-              <div className="slider-text">
-                <p>
-                  Peu d’indépendants prennent conscience à quel point il est
-                  important de posséder un site internet aujourd’hui. En effet,
-                  la plupart des gens se renseignent sur l’entreprise via
-                  internet avant même d’être client. Il est probablement aussi
-                  indispensable qu’un numéro de téléphone. Chez Woopix nous
-                  développons pour votre entreprise des sites de qualité à coût
-                  raisonnable. Nous avons un taux de satisfactions inégalable
-                  par nos concurrents.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-title">
-                <h3>03 Gestion des réseaux sociaux</h3>
-              </div>
-              <div className="slider-text">
-                <p>
-                  Peu d’indépendants prennent conscience à quel point il est
-                  important de posséder un site internet aujourd’hui. En effet,
-                  la plupart des gens se renseignent sur l’entreprise via
-                  internet avant même d’être client. Il est probablement aussi
-                  indispensable qu’un numéro de téléphone. Chez Woopix nous
-                  développons pour votre entreprise des sites de qualité à coût
-                  raisonnable. Nous avons un taux de satisfactions inégalable
-                  par nos concurrents.
-                </p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slider-title">
-                <h3>03 Gestion des réseaux sociaux</h3>
-              </div>
-              <div className="slider-text">
-                <p>
-                  Peu d’indépendants prennent conscience à quel point il est
-                  important de posséder un site internet aujourd’hui. En effet,
-                  la plupart des gens se renseignent sur l’entreprise via
-                  internet avant même d’être client. Il est probablement aussi
-                  indispensable qu’un numéro de téléphone. Chez Woopix nous
-                  développons pour votre entreprise des sites de qualité à coût
-                  raisonnable. Nous avons un taux de satisfactions inégalable
-                  par nos concurrents.
-                </p>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-          <div className="service-links-container">
-              <div className="link-container">
-                  <ul>
-                      <ol> 01.Creation de site Internet</ol>
-                      <ol>02.Gestion de réseaux sociaux</ol>
-                      <ol>03.lettrage et signalétique</ol>
-                      <ol>04.Impression offset et digital</ol>
-                      <ol>05.Distribution</ol>
-                  </ul>
-              </div>
-          </div>
-          <CallToAction link="/nos-services" buttonTxt="Nos services" />
-        </div>
-      </div>
-    </ServiceWrapper>
-  );
+    return (
+        <ServiceWrapper>
+            <div id="our-service">
+                <div className="services">
+                    <Title num="02" firstP="nos" secondP="services"/>
+                    <Swiper
+                        slidesPerView={2}
+                        className="slider-container"
+                        id="mobile-slider"
+                        spaceBetween={50}
+                    >
+                        <SwiperSlide>
+
+                            <div className="slider-title">
+                                <h3>01 Gestion des réseaux sociaux</h3>
+                            </div>
+                            <div className="slider-text">
+                                <p>
+                                    Peu d’indépendants prennent conscience à quel point il est
+                                    important de posséder un site internet aujourd’hui. En effet,
+                                    la plupart des gens se renseignent sur l’entreprise via
+                                    internet avant même d’être client. Il est probablement aussi
+                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
+                                    développons pour votre entreprise des sites de qualité à coût
+                                    raisonnable. Nous avons un taux de satisfactions inégalable
+                                    par nos concurrents.
+                                </p>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-title">
+                                <h3>02 Gestion des réseaux sociaux</h3>
+                            </div>
+                            <div className="slider-text">
+                                <p>
+                                    Peu d’indépendants prennent conscience à quel point il est
+                                    important de posséder un site internet aujourd’hui. En effet,
+                                    la plupart des gens se renseignent sur l’entreprise via
+                                    internet avant même d’être client. Il est probablement aussi
+                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
+                                    développons pour votre entreprise des sites de qualité à coût
+                                    raisonnable. Nous avons un taux de satisfactions inégalable
+                                    par nos concurrents.
+                                </p>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-title">
+                                <h3>03 Gestion des réseaux sociaux</h3>
+                            </div>
+                            <div className="slider-text">
+                                <p>
+                                    Peu d’indépendants prennent conscience à quel point il est
+                                    important de posséder un site internet aujourd’hui. En effet,
+                                    la plupart des gens se renseignent sur l’entreprise via
+                                    internet avant même d’être client. Il est probablement aussi
+                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
+                                    développons pour votre entreprise des sites de qualité à coût
+                                    raisonnable. Nous avons un taux de satisfactions inégalable
+                                    par nos concurrents.
+                                </p>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-title">
+                                <h3>03 Gestion des réseaux sociaux</h3>
+                            </div>
+                            <div className="slider-text">
+                                <p>
+                                    Peu d’indépendants prennent conscience à quel point il est
+                                    important de posséder un site internet aujourd’hui. En effet,
+                                    la plupart des gens se renseignent sur l’entreprise via
+                                    internet avant même d’être client. Il est probablement aussi
+                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
+                                    développons pour votre entreprise des sites de qualité à coût
+                                    raisonnable. Nous avons un taux de satisfactions inégalable
+                                    par nos concurrents.
+                                </p>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-title">
+                                <h3>03 Gestion des réseaux sociaux</h3>
+                            </div>
+                            <div className="slider-text">
+                                <p>
+                                    Peu d’indépendants prennent conscience à quel point il est
+                                    important de posséder un site internet aujourd’hui. En effet,
+                                    la plupart des gens se renseignent sur l’entreprise via
+                                    internet avant même d’être client. Il est probablement aussi
+                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
+                                    développons pour votre entreprise des sites de qualité à coût
+                                    raisonnable. Nous avons un taux de satisfactions inégalable
+                                    par nos concurrents.
+                                </p>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="slider-title">
+                                <h3>03 Gestion des réseaux sociaux</h3>
+                            </div>
+                            <div className="slider-text">
+                                <p>
+                                    Peu d’indépendants prennent conscience à quel point il est
+                                    important de posséder un site internet aujourd’hui. En effet,
+                                    la plupart des gens se renseignent sur l’entreprise via
+                                    internet avant même d’être client. Il est probablement aussi
+                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
+                                    développons pour votre entreprise des sites de qualité à coût
+                                    raisonnable. Nous avons un taux de satisfactions inégalable
+                                    par nos concurrents.
+                                </p>
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
+                    <div className="service-links-container">
+                        <div className="link-container">
+                            <ul>
+                                <ol> 01.Creation de site Internet</ol>
+                                <ol>02.Gestion de réseaux sociaux</ol>
+                                <ol>03.lettrage et signalétique</ol>
+                                <ol>04.Impression offset et digital</ol>
+                                <ol>05.Distribution</ol>
+                            </ul>
+                        </div>
+                        <div className="text-container">
+                            <p>
+                                Peu d’indépendants prennent conscience à quel point il est important de posséder un site
+                                internet aujourd’hui. En effet, la plupart des gens se renseignent sur l’entreprise via
+                                internet avant même d’être client. Il est probablement aussi indispensable qu’un numéro
+                                de téléphone.
+                                Chez Woopix nous développons pour votre entreprise des sites de qualité à coût
+                                raisonnable. Nous avons un taux de satisfactions inégalable par nos concurrents.
+
+                            </p>
+                        </div>
+                    </div>
+                    <CallToAction link="/nos-services" buttonTxt="Nos services"/>
+                </div>
+            </div>
+        </ServiceWrapper>
+    );
 };
 
 export default withRouter(OurServices);

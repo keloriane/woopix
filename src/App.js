@@ -6,7 +6,7 @@ import Services from './pages/Services'
 import  Home from './pages/Home';
 import {About} from './pages/About';
 import Portfolio from "./pages/Portfolio/";
-import {Menu} from "./pages/Menu/";
+import { Menu } from "./pages/Menu/";
 import  OurServices  from "./pages/OurServices/";
 import Contact from "./pages/Contact/"
 
