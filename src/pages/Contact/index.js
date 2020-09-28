@@ -246,7 +246,7 @@ const Contact = (props) => {
         <div id="contact">
           <div className="contact-wrapper">
             <Title
-             
+              num={"05"}
               firstP="prenez"
               secondP="rendez-vous"
               className="contact-title"

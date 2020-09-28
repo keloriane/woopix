@@ -38,6 +38,8 @@ const Portfolio = (props) => {
           align-items: center;
           .portfolio-container {
             width: 100%;
+            display: flex;
+            justify-content: center;
             position: relative;
             .green-background {
               position: absolute;
@@ -52,7 +54,7 @@ const Portfolio = (props) => {
               width: 100%;
               overflow: hidden;
               .swiper-slide {
-                min-width: 160px;
+                min-width: 195px;
                 max-width: 160.75px;
               }
             }
@@ -81,6 +83,7 @@ const Portfolio = (props) => {
           margin: 0 auto;
           .portfolio-container {
           display: flex;
+          justify-content: center;
             .green-background {
               width: 100%;
               height: 380px;
@@ -94,6 +97,7 @@ const Portfolio = (props) => {
           }
           .portfolio-slider {
             display: flex;
+            margin-left: 5px;
           }
         }
       }
@@ -106,9 +110,11 @@ const Portfolio = (props) => {
         .portfolio-wrapper{
           max-width: 1025px;
           display: flex;
-          justify-self: flex-end;
+          justify-self: flex-start;
           justify-content: center;
           .portfolio-container{
+            display:flex;
+            justify-content: flex-start;
             .green-background{
               width: 60%;
             }
@@ -120,6 +126,7 @@ const Portfolio = (props) => {
     }
     #global-wrapper{
       overflow: hidden;
+      position: relative;
   }
     img{
       height: 100%;

@@ -3,11 +3,16 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Container from "./../../global/Container";
 import Title from "../../components/Title/Title";
+import {doted} from "./../../assets/img/doted.png";
 import Menu from "./../Menu/"
 import gsap from "gsap"
 
 export const About = (props) => {
   const AboutWrapper = styled.div`
+.doted{
+  position: absolute;
+  
+}
   .text-letter{
     overflow: hidden;
   }
@@ -17,6 +22,7 @@ export const About = (props) => {
   }
     #about {
       
+        height: 95vh;
       display: flex;
       align-items: center;
       font-family: "Futura PT", sans-serif;
@@ -27,6 +33,7 @@ export const About = (props) => {
     
     @media screen and (max-width: 596px) {
       #about {
+        height: 95vh;
         .about-wrapper {
           display: flex;
           align-items: flex-start;
@@ -223,6 +230,7 @@ const aboutTl = gsap.timeline({paused: true})
           animation6={(e)=>changePage(e, "/gestion-reseaux-sociaux")}
         />
         <div id="about">
+          <img src={doted} alt="" className={"doted"}/>
           <div className="about-wrapper">
           <Title num="01" firstP="à propos" secondP="de woopix" className="text-letter"  />
             <div className="text-container">

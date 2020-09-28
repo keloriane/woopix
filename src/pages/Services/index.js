@@ -4,70 +4,122 @@ import ServicesItem from "./components/ServiceItem.js";
 import ServiceOption from "./components/ServiceOption";
 import {withRouter} from "react-router-dom";
 import parse from 'html-react-parser';
+import {motion, useAnimation } from 'framer-motion'
+import {useInView } from "react-intersection-observer";
 import Menu from "../Menu";
-import gsap from "gsap"
+
 
 
 const Services = (props) => {
     const [data, setData] = useState(null);
-        let serviceTl = gsap.timeline({paused: true})
+    const animation= useAnimation();
+    const [contentRef, inView] = useInView({
+        triggerOnce: true,
+        // rootMargin: '-300px'
+
+
+
+    })
+
+
+
+    const parent = {
+        initial: { y: 50,opacity:0},
+        animate: {
+            y:0,
+            opacity: 1,
+            transition: {
+                duration: .5
+            }
+        }
+    }
+    const child = {
+        initial: { y: 100, opacity:0 },
+        animate: {
+            y:0,
+            opacity: 1,
+            transition: {
+                duration: 1,
+                ease: [0.6 , 0.5, -0.01 , 0.9]
+            }
+        }
+    }
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.5
+            }
+        }
+    }
+
+    const item = {
+        hidden: { opacity: 0 },
+        show: { opacity: 1 }
+    }
+
     useEffect(() => {
         let path = window.location.href.split('/')[4]
         fetch(`${process.env.PUBLIC_URL}/data/${path}.json`)
             .then(response => response.json())
             .then((dataResponse) => setData(dataResponse))
 
-        let titleArray = [];
-        function splitWord(word) {
-            return [...word]
-                .map(letter => `<span class="chars">${letter}</span>`)
-                .join("");
+        if(inView){
+            animation.start('visible')
         }
-        const words = [...document.querySelectorAll(".text-letter")];
-        // eslint-disable-next-line
-        words.map(word => {
-            word.innerHTML = splitWord(word.textContent);
-            const newLetter = [...word.querySelectorAll(".chars")];
-            // eslint-disable-next-line
-            newLetter.map(letter => {
-                titleArray.push(letter);
-            });
-        });
-
-        const randomVar = document.getElementsByClassName("page-title")
-        console.log(randomVar)
-
-        serviceTl
-            .to(randomVar[0],.3,{y:"100%", opacity:0})
-        serviceTl.play()
 
 
-    }, []);
+    }, [animation, inView]);
 
     if (!data) {
         return <p>loading..</p>;
     }
+
+
+
 
     return (
         <Container gridDisplayed={props.gridDisplayed}>
             <div className="bg"/>
             <div className={'page-header-bg'}>
                 <div className='page-header'>
-                    <h1 className="text-letter page-title ">{data.pageTitle}</h1>
-                    <p className={'page-description'}>{parse(data.pageDescription)}</p>
+                    <motion.h1 variants={parent} initial={"initial"} animate={'animate'} className="text-letter page-title ">{data.pageTitle}</motion.h1>
+                    <motion.p variants={child} initial={"initial"} animate={'animate'} className={'page-description'}>{parse(data.pageDescription)}</motion.p>
                 </div>
             </div>
 
 
-            <div className={'sub-container'}>
+            <motion.div className={'sub-container'}
+                 ref={contentRef}
+                 animate={animation}
+                 initial={'hidden'}
+                 variants={{
+                     visible: {
+                         opacity:1,
+                         y:0,
+                         transition: {duration: .6 , ease:[.6,.05,-.01,.9]}
+                     },
+                     hidden:{
+                         opacity:0,
+                         y:72,
+                     }
+                 }}
+            >
                 {data.items && (
-                    <div className='services-list'>
+                    <div className='services-list'
+                         variants={container}
+                         initial="hidden"
+                         animate="show"
+                    >
                         {data.items.map(item => (
                             <ServicesItem
+
                                 title={item.title}
                                 subtitle={item.subtitle}
                                 price={item.price}
                                 text={item.text}
+                                variants={item}
                             />
                         ))}
                     </div>
@@ -81,7 +133,7 @@ const Services = (props) => {
                         />
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </Container>
     )
 }
