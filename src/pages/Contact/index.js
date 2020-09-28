@@ -9,7 +9,7 @@ import gsap from "gsap";
 const Contact = (props) => {
   const ContactWrapper = styled.div`
     #contact {
-      width: 100vw;
+      
       height: 100vh;
       display: flex;
       align-items: center;
@@ -56,7 +56,7 @@ const Contact = (props) => {
     }
     @media screen and (max-width: 596px) {
       #contact {
-        width: 100vw;
+        
         height: 100vh;
         display: flex;
         align-items: center;
@@ -234,12 +234,13 @@ const Contact = (props) => {
   }
   return (
     <>
-     <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
+     <Menu
+         animation1={(e) => changePage(e, "/")}
+         animation2={(e) => changePage(e, "/about")}
+         animation3={(e) => changePage(e, "/tarifs-sites")}
+         animation4={(e) => changePage(e, "/portfolio")}
+         animation5={(e) => changePage(e, "/contact")}
+         animation6={(e)=>changePage(e, "/gestion-reseaux-sociaux")}
         />
       <ContactWrapper>
         <div id="contact">

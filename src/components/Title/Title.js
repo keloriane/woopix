@@ -132,7 +132,8 @@ const Title = (props) => {
             newLetter.map(letter => {
                 titleArray.push(letter);
             });
-        }); 
+        });
+
         
       
     },[])

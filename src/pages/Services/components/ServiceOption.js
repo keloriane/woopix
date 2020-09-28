@@ -4,7 +4,7 @@ import styled,{withTheme} from 'styled-components'
 const ServiceOption = ({title, price, list}) => {
     return (
         <Container>
-            <h2 className='option-item-title'>{title}</h2>
+            <h2 className='option-item-title text-letter'>{title}</h2>
             {price && (<h3 className='option-item-price'>{price}</h3>)}
             <ol className='option-item-list'>
                 {list.map((item, index) => (

@@ -141,7 +141,10 @@ export const About = (props) => {
       }
       #about {
         height: 100vh;
-        width: 100vw;
+        width: 1020px;
+        margin: auto;
+        display:flex;
+        align-items: center;
         .about-wrapper {
           width: 100%;
           max-width: 1054px;
@@ -211,12 +214,13 @@ const aboutTl = gsap.timeline({paused: true})
   return (
     <Container>
       <AboutWrapper>
-      <Menu 
-          animation1={e => changePage(e,'/')}
-          animation2={e => changePage(e,'/services')}
-          animation3={e => changePage(e,'/about')}
-          animation4={e => changePage(e,'/portfolio')}
-          animation5={e => changePage(e,'/contact')}
+      <Menu
+          animation1={(e) => changePage(e, "/")}
+          animation2={(e) => changePage(e, "/about")}
+          animation3={(e) => changePage(e, "/tarifs-sites")}
+          animation4={(e) => changePage(e, "/portfolio")}
+          animation5={(e) => changePage(e, "/contact")}
+          animation6={(e)=>changePage(e, "/gestion-reseaux-sociaux")}
         />
         <div id="about">
           <div className="about-wrapper">

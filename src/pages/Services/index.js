@@ -2,17 +2,46 @@ import React, {useEffect, useState} from 'react'
 import styled, {withTheme, css} from 'styled-components'
 import ServicesItem from "./components/ServiceItem.js";
 import ServiceOption from "./components/ServiceOption";
+import {withRouter} from "react-router-dom";
 import parse from 'html-react-parser';
 import Menu from "../Menu";
+import gsap from "gsap"
 
 
 const Services = (props) => {
     const [data, setData] = useState(null);
+        let serviceTl = gsap.timeline({paused: true})
     useEffect(() => {
         let path = window.location.href.split('/')[4]
         fetch(`${process.env.PUBLIC_URL}/data/${path}.json`)
             .then(response => response.json())
             .then((dataResponse) => setData(dataResponse))
+
+        let titleArray = [];
+        function splitWord(word) {
+            return [...word]
+                .map(letter => `<span class="chars">${letter}</span>`)
+                .join("");
+        }
+        const words = [...document.querySelectorAll(".text-letter")];
+        // eslint-disable-next-line
+        words.map(word => {
+            word.innerHTML = splitWord(word.textContent);
+            const newLetter = [...word.querySelectorAll(".chars")];
+            // eslint-disable-next-line
+            newLetter.map(letter => {
+                titleArray.push(letter);
+            });
+        });
+
+        const randomVar = document.getElementsByClassName("page-title")
+        console.log(randomVar)
+
+        serviceTl
+            .to(randomVar[0],.3,{y:"100%", opacity:0})
+        serviceTl.play()
+
+
     }, []);
 
     if (!data) {
@@ -24,7 +53,7 @@ const Services = (props) => {
             <div className="bg"/>
             <div className={'page-header-bg'}>
                 <div className='page-header'>
-                    <h1 className={'page-title'}>{data.pageTitle}</h1>
+                    <h1 className="text-letter page-title ">{data.pageTitle}</h1>
                     <p className={'page-description'}>{parse(data.pageDescription)}</p>
                 </div>
             </div>
@@ -57,7 +86,7 @@ const Services = (props) => {
     )
 }
 
-export default withTheme(Services)
+export default withRouter(withTheme(Services))
 
 
 const Container = styled.div`

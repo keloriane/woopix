@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Title from "../../components/Title/Title";
 import CallToAction from "./../../components/CallToAction";
 import Container from "./../../global/Container";
@@ -8,21 +8,24 @@ import slide2 from "./../../assets/img/slide2.png";
 import slide3 from "./../../assets/img/slide3.png";
 import slide4 from "./../../assets/img/slide4.png";
 import slide5 from "./../../assets/img/slide5.png";
-import {Swiper, SwiperSlide } from "swiper/react";
-import {withRouter } from "react-router-dom"
-import "swiper/swiper-bundle.css"
+import {Swiper, SwiperSlide} from "swiper/react";
+import {withRouter} from "react-router-dom"
+import "swiper/swiper-bundle.css";
+import gsap from "gsap"
 import SwiperCore from "swiper";
+import Menu from "../Menu";
 
- const Portfolio = () => {
-  
-  const PortfolioWrapper = styled.div`
+const Portfolio = (props) => {
+
+
+    const PortfolioWrapper = styled.div`
     #portfolio {
       font-family: "Futura PT", sans-serif;
     }
     @media screen and (max-width: 596px) {
       #portfolio {
-        width: 100vw;
-        height: 100vh;
+        max-width: 1015px;
+        height: 552px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -30,7 +33,7 @@ import SwiperCore from "swiper";
           height: 557px;
           display: flex;
           flex-direction: column;
-          margin: auto;
+          
           justify-content: space-between;
           align-items: center;
           .portfolio-container {
@@ -38,7 +41,7 @@ import SwiperCore from "swiper";
             position: relative;
             .green-background {
               position: absolute;
-              width: 100vw;
+              width: 100%;
               height: 277px;
               background-color: ${(props) => props.theme.green};
               z-index: -1;
@@ -46,7 +49,7 @@ import SwiperCore from "swiper";
             .portfolio-slider {
               height: 295px;
               display: flex;
-              width: 100vw;
+              width: 100%;
               overflow: hidden;
               .swiper-slide {
                 min-width: 160px;
@@ -58,9 +61,16 @@ import SwiperCore from "swiper";
       }
     }
     @media screen and (min-width: 596px) {
+    .call-to-action{
+    button{
+        width: 219px;
+    height: 53px;
+    margin-top: 33px;
+    }
+    }
       #portfolio {
-        width: 100vw;
-        height: 100vh;
+        width: 835px;
+        height: 1070px;
         .portfolio-wrapper {
           display: flex;
           flex-direction: column;
@@ -70,6 +80,7 @@ import SwiperCore from "swiper";
           justify-content: space-around;
           margin: 0 auto;
           .portfolio-container {
+          display: flex;
             .green-background {
               width: 100%;
               height: 380px;
@@ -87,7 +98,8 @@ import SwiperCore from "swiper";
         }
       }
     }
-
+  flow: hidden;
+  }
     @media screen and (min-width: 992px){
       #portfolio{
         
@@ -106,63 +118,96 @@ import SwiperCore from "swiper";
 
       }
     }
+    #global-wrapper{
+      overflow: hidden;
+  }
     img{
       height: 100%;
-      max-height: 267px;
+      max-height:320px;
     }
   `;
-  return (
-    <Container>
-      <PortfolioWrapper>
-        <div id="portfolio">
-          <div className="portfolio-wrapper">
-            <Title num="03" firstP="Notre" secondP="Portfolio" />
-            <div className="portfolio-container">
-              <div className="green-background"></div>
-              <div className="portfolio-slider">
-                <Swiper 
-                slidesPerView={4}
-                centeredSlides={true} 
-                spaceBetween ={30}
-                className="slider-items"
-                
-                >
-                  <SwiperSlide className="slider-item">
 
-                      <img src={slide1} alt="" />
-                   </SwiperSlide>
-                  <SwiperSlide>
 
-                      <img src={slide2} alt="" />
-                   </SwiperSlide>
-                  <SwiperSlide>
+        const portfolioTl = gsap.timeline({paused: true})
+    useEffect(()=>{
+        portfolioTl
+            .from(".green-background", 1 , { x:"100%" })
+            .staggerFrom(".chars",.3,{y:"100%", opacity:0, delay:-.5},.03)
+            .staggerFrom(".swiper-slide", .7 , {x:100, opacity: 0, delay:-.5},.05)
 
-                      <img src={slide3} alt="" />
-                   </SwiperSlide>
-                  <SwiperSlide>
+        portfolioTl.play()
+    },[])
 
-                      <img src={slide4} alt="" />
-                   </SwiperSlide>
-                  <SwiperSlide>
-
-                      <img src={slide5} alt="" />
-                   </SwiperSlide>
-                  <SwiperSlide>
-
-                      <img src={slide3} alt="" />
-                   </SwiperSlide>
-                </Swiper>
-              </div>
-            </div>
-            <CallToAction
-              link="/contact"
-              buttonTxt="Prendre rendez-vous"
-              className="rdv"
+    const changePage=(e, destination) => {
+        e.preventDefault();
+        portfolioTl.reverse();
+        const timelineDuration = portfolioTl.duration()*1000;
+        setTimeout(() => {
+            props.history.push(destination);
+        }, timelineDuration);
+    }
+    return (
+        <Container>
+            <Menu
+                animation1={(e) => changePage(e, "/")}
+                animation2={(e) => changePage(e, "/about")}
+                animation3={(e) => changePage(e, "/tarifs-sites")}
+                animation4={(e) => changePage(e, "/portfolio")}
+                animation5={(e) => changePage(e, "/contact")}
+                animation6={(e)=>changePage(e, "/gestion-reseaux-sociaux")}
             />
-          </div>
-        </div>
-      </PortfolioWrapper>
-    </Container>
-  );
+            <PortfolioWrapper id="global-wrapper">
+                <div id="portfolio">
+                    <div className="portfolio-wrapper">
+                        <Title num="03" firstP="Notre" secondP="Portfolio"/>
+                        <div className="portfolio-container">
+                            <div className="green-background">
+
+                            </div>
+                            <div className="portfolio-slider">
+                                <Swiper
+                                    slidesPerView={4}
+                                    centeredSlides={true}
+
+                                    className="slider-items"
+
+                                >
+                                    <SwiperSlide className="slider-item">
+
+                                        <img src={slide1} alt=""/>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+
+                                        <img src={slide2} alt=""/>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+
+                                        <img src={slide3} alt=""/>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+
+                                        <img src={slide4} alt=""/>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+
+                                        <img src={slide5} alt=""/>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+
+                                        <img src={slide3} alt=""/>
+                                    </SwiperSlide>
+                                </Swiper>
+                            </div>
+                        </div>
+                        <CallToAction
+                            link="/contact"
+                            buttonTxt="Prendre rendez-vous"
+                            className="rdv"
+                        />
+                    </div>
+                </div>
+            </PortfolioWrapper>
+        </Container>
+    );
 };
 export default withRouter(Portfolio)

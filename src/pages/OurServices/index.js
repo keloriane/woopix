@@ -14,8 +14,9 @@ const OurServices = (props) => {
     const ServiceWrapper = styled.div`
     #our-service {
       font-family: "Futura PT";
-      width: 100vw;
-      height: 100vh;
+      max-width: 1000px;
+      max-height: 900px;
+      height: 100%;
       display: flex;
       overflow: hidden;
     }
@@ -105,6 +106,9 @@ const OurServices = (props) => {
     }
     
     @media screen and (min-width: 992px) {
+    #mobile-title{
+      display: none;
+    }
         #our-service{
           display: flex;
           align-items: center;
@@ -119,6 +123,11 @@ const OurServices = (props) => {
                 display: flex;
                 justify-content: space-evenly;
 
+                .inner-wrapper{
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  max-width:960px;
                   .link-container{
                      width: 420px;
                   ul{
@@ -135,6 +144,7 @@ const OurServices = (props) => {
                     }
                   }
                 }
+                
                 .text-container{
                   width: 100%;
                   max-width: 465px;
@@ -145,6 +155,8 @@ const OurServices = (props) => {
                   line-height: 160.2%;
                   color: rgba(0, 0, 0, 0.6);
                   }
+                }
+                
                 }
                 
               }
@@ -167,7 +179,7 @@ const OurServices = (props) => {
         <ServiceWrapper>
             <div id="our-service">
                 <div className="services">
-                    <Title num="02" firstP="nos" secondP="services"/>
+                    <Title num="02" firstP="nos" secondP="services" id="mobile-title"/>
                     <Swiper
                         slidesPerView={2}
                         className="slider-container"
@@ -279,25 +291,32 @@ const OurServices = (props) => {
                         </SwiperSlide>
                     </Swiper>
                     <div className="service-links-container">
-                        <div className="link-container">
-                            <ul>
-                                <ol> 01.Creation de site Internet</ol>
-                                <ol>02.Gestion de réseaux sociaux</ol>
-                                <ol>03.lettrage et signalétique</ol>
-                                <ol>04.Impression offset et digital</ol>
-                                <ol>05.Distribution</ol>
-                            </ul>
-                        </div>
-                        <div className="text-container">
-                            <p>
-                                Peu d’indépendants prennent conscience à quel point il est important de posséder un site
-                                internet aujourd’hui. En effet, la plupart des gens se renseignent sur l’entreprise via
-                                internet avant même d’être client. Il est probablement aussi indispensable qu’un numéro
-                                de téléphone.
-                                Chez Woopix nous développons pour votre entreprise des sites de qualité à coût
-                                raisonnable. Nous avons un taux de satisfactions inégalable par nos concurrents.
+                        <Title num="02" firstP="nos" secondP="services" className="desktop-title"/>
+                        <div className="inner-wrapper">
 
-                            </p>
+                            <div className="link-container">
+                                <ul>
+                                    <ol> 01.Creation de site Internet</ol>
+                                    <ol>02.Gestion de réseaux sociaux</ol>
+                                    <ol>03.lettrage et signalétique</ol>
+                                    <ol>04.Impression offset et digital</ol>
+                                    <ol>05.Distribution</ol>
+                                </ul>
+                            </div>
+                            <div className="text-container">
+                                <p>
+                                    Peu d’indépendants prennent conscience à quel point il est important de posséder un
+                                    site
+                                    internet aujourd’hui. En effet, la plupart des gens se renseignent sur l’entreprise
+                                    via
+                                    internet avant même d’être client. Il est probablement aussi indispensable qu’un
+                                    numéro
+                                    de téléphone.
+                                    Chez Woopix nous développons pour votre entreprise des sites de qualité à coût
+                                    raisonnable. Nous avons un taux de satisfactions inégalable par nos concurrents.
+
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <CallToAction link="/nos-services" buttonTxt="Nos services"/>

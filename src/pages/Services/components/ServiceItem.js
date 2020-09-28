@@ -4,9 +4,9 @@ import styled, {withTheme} from 'styled-components'
 const ServicesItem = ({title, subtitle, price, text}) => {
     return (
         <Container>
-            <h2 className={'service-item-title'}>{title}</h2>
-            <h3 className={'service-item-subtitle'}>{subtitle} <span className={'price'}>{price}</span></h3>
-            <h3 className={'service-item-text'}>{text}</h3>
+            <h2 className={'service-item-title text-letter'}>{title}</h2>
+            <h3 className={'service-item-subtitle text-letter'}>{subtitle} <span className={'price'}>{price}</span></h3>
+            <h3 className={'service-item-text text-letter'}>{text}</h3>
         </Container>
     )
 

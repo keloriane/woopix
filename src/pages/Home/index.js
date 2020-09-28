@@ -37,10 +37,11 @@ const Home = (props) => {
       <Container>
         <Menu
           animation1={(e) => changePage(e, "/")}
-          animation2={(e) => changePage(e, "/services")}
-          animation3={(e) => changePage(e, "/about")}
+          animation2={(e) => changePage(e, "/about")}
+          animation3={(e) => changePage(e, "/tarifs-sites")}
           animation4={(e) => changePage(e, "/portfolio")}
           animation5={(e) => changePage(e, "/contact")}
+          animation6={(e)=>changePage(e, "/gestion-reseaux-sociaux")}
         />
         <div className="home">
           <div className="home-wrapper">
@@ -198,7 +199,7 @@ const HomeContainer = styled.div`
       display: flex;
       align-items: center;
       height: 100vh;
-      width: 100vw;
+    
 
       .home-wrapper {
         display: flex;

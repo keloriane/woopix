@@ -35,13 +35,13 @@ const Menu = (props) => {
       <div className="menu">
         <ul className="main-menu">
           <li className="menu-items">
-            <Link to="/" onClick={props.animation1}>Woopix</Link>
+            <Link to="/" onClick={props.animation1}>Acueil</Link>
           </li>
           <li className="menu-items">
-             <Link to="/tarifs-sites" >Site</Link>
+             <Link to="/about" onClick={props.animation2}>A propos</Link>
           </li>
           <li className="menu-items">
-             <Link to="/about" onClick={props.animation3}>A propos</Link>
+             <Link to="/tarifs-sites" onClick={props.animation3} >Site</Link>
           </li>
           <li className="menu-items">
             <Link to="/portfolio" onClick={props.animation4}>Réalisations</Link>
@@ -50,7 +50,7 @@ const Menu = (props) => {
             <Link to="/contact" onClick={props.animation5}>Contact</Link>
           </li>
           <li className="menu-items">
-            <Link to="/gestion-reseaux-sociaux">Réseaux Sociaux</Link>
+            <Link to="/gestion-reseaux-sociaux" onClick={props.animation6}>Réseaux Sociaux</Link>
           </li>
         </ul>
       </div>
