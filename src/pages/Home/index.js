@@ -6,6 +6,9 @@ import Container from "./../../global/Container";
 import Menu from "./../Menu/";
 import {withRouter} from "react-router-dom";
 import {logo} from "./../../assets/img/logo.svg"
+import About from "../About/";
+import Portfolio from "../Portfolio/";
+import Contact from "../Contact/";
 
 const Home = (props) => {
     let homeTl = gsap.timeline({paused: true});
@@ -40,15 +43,9 @@ const Home = (props) => {
 
     return (
         <HomeContainer>
+            <Menu />
             <Container>
-                <Menu
-                    animation1={(e) => changePage(e, "/")}
-                    animation2={(e) => changePage(e, "/about")}
-                    animation3={(e) => changePage(e, "/tarifs-sites")}
-                    animation4={(e) => changePage(e, "/portfolio")}
-                    animation5={(e) => changePage(e, "/contact")}
-                    animation6={(e) => changePage(e, "/gestion-reseaux-sociaux")}
-                />
+
                 <div className="home">
                     <div className="home-wrapper">
                         <div className="bg-green">
@@ -117,6 +114,9 @@ const Home = (props) => {
                     </div>
                 </div>
             </Container>
+        <About />
+        <Portfolio />
+        <Contact />>
         </HomeContainer>
     );
 };

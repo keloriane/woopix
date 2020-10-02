@@ -3,16 +3,18 @@ import styled, {withTheme, css} from 'styled-components'
 import ServicesItem from "./components/ServiceItem.js";
 import ServiceOption from "./components/ServiceOption";
 import {withRouter} from "react-router-dom";
-import parse from 'html-react-parser';
+import parse from 'html-react-parser/dist/html-react-parser';
 import {motion, useAnimation } from 'framer-motion'
 import {useInView } from "react-intersection-observer";
 import Menu from "../Menu";
+import axios from "axios";
 
 
 
 const Services = (props) => {
     const [data, setData] = useState(null);
     const animation= useAnimation();
+    const [strapi, setStrapi] = useState([])
     const [contentRef, inView] = useInView({
         triggerOnce: true,
         // rootMargin: '-300px'
@@ -65,6 +67,11 @@ const Services = (props) => {
             .then(response => response.json())
             .then((dataResponse) => setData(dataResponse))
 
+        axios.get('http://localhost:1337/site-web')
+            .then((res)=> {
+                setStrapi(res.data)
+                console.log(strapi)
+            })
         if(inView){
             animation.start('visible')
         }
@@ -84,8 +91,8 @@ const Services = (props) => {
             <div className="bg"/>
             <div className={'page-header-bg'}>
                 <div className='page-header'>
-                    <motion.h1 variants={parent} initial={"initial"} animate={'animate'} className="text-letter page-title ">{data.pageTitle}</motion.h1>
-                    <motion.p variants={child} initial={"initial"} animate={'animate'} className={'page-description'}>{parse(data.pageDescription)}</motion.p>
+                    <motion.h1 variants={parent} initial={"initial"} animate={'animate'} className="text-letter page-title ">{strapi.title}</motion.h1>
+                    <motion.p variants={child} initial={"initial"} animate={'animate'} className={'page-description'}>{parse(strapi.description)}</motion.p>
                 </div>
             </div>
 

@@ -15,6 +15,11 @@ const theme = {
     blue: '#1B065E'
 };
 
+const routes = [
+    { path: "/", name: "Home", Component: Home },
+
+]
+
 
 function App() {
   return (
