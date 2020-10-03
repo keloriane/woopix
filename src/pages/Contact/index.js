@@ -10,6 +10,7 @@ const Contact = (props) => {
   const ContactWrapper = styled.div`
     #contact {
       
+      position: relative;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -234,14 +235,7 @@ const Contact = (props) => {
   }
   return (
     <>
-     <Menu
-         animation1={(e) => changePage(e, "/")}
-         animation2={(e) => changePage(e, "/about")}
-         animation3={(e) => changePage(e, "/tarifs-sites")}
-         animation4={(e) => changePage(e, "/portfolio")}
-         animation5={(e) => changePage(e, "/contact")}
-         animation6={(e)=>changePage(e, "/gestion-reseaux-sociaux")}
-        />
+
       <ContactWrapper>
         <div id="contact">
           <div className="contact-wrapper">
@@ -270,7 +264,7 @@ const Contact = (props) => {
           </div>
         </div>
       </ContactWrapper>
-      <Footer />
+
     </>
   );
 };

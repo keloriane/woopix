@@ -7,12 +7,15 @@ import parse from 'html-react-parser';
 import {motion, useAnimation } from 'framer-motion'
 import {useInView } from "react-intersection-observer";
 import {STRAPI_URL} from "../Helpers";
+import Menu from "../Menu";
+import axios from "axios";
 
 
 
 const Services = (props) => {
     const [data, setData] = useState(null);
     const animation= useAnimation();
+    const [strapi, setStrapi] = useState([])
     const [contentRef, inView] = useInView({
         triggerOnce: true,
         // rootMargin: '-300px'
@@ -71,6 +74,7 @@ const Services = (props) => {
                 /*return null*/
                 return setData(dataResponse)
             })
+
 
         if(inView){
             animation.start('visible')

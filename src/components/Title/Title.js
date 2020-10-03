@@ -1,5 +1,8 @@
 import React,{useEffect} from 'react'
 import styled from "styled-components"
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import Splitting from "splitting";
 import gsap from "gsap"
 
 const Title = (props) => {
@@ -117,37 +120,28 @@ const Title = (props) => {
     `
     useEffect(()=>{
         //Split each word from a tag
-        let titleArray = [];
-        function splitWord(word) {
-            return [...word]
-            .map(letter => `<span class="chars">${letter}</span>`)
-            .join("");
-        }
-        const words = [...document.querySelectorAll(".text-letter")];
-        // eslint-disable-next-line
-        words.map(word => {
-            word.innerHTML = splitWord(word.textContent);
-            const newLetter = [...word.querySelectorAll(".chars")]; 
-            // eslint-disable-next-line
-            newLetter.map(letter => {
-                titleArray.push(letter);
-            });
-        });
+        const target = document.querySelectorAll('.text-letter');
+        const results = Splitting({ target: target, by: 'chars' });
+        console.log(results);
+        const char = document.querySelectorAll('.char')
+        console.log(char);
 
-        
-      
+
+
+
+
+
+
     },[])
     return (
         <TitleMain >
         <div className="main-title">
         <div className="number-title">
-            <h2>{props.num}</h2>
+            <h2 className={props.letter}>{props.num}</h2>
         </div>
         <div className="title">
-          <h2 className="text-letter">
-            {props.firstP} </h2>
-            <h2 className="text-letter">{props.secondP}
-          </h2>
+          <h2 className={props.letter}>{props.firstP}</h2>
+            <h2 className= {props.letter}>{props.secondP}</h2>
         </div>
       </div>
         </TitleMain>
