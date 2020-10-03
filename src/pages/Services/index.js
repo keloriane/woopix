@@ -3,9 +3,10 @@ import styled, {withTheme, css} from 'styled-components'
 import ServicesItem from "./components/ServiceItem.js";
 import ServiceOption from "./components/ServiceOption";
 import {withRouter} from "react-router-dom";
-import parse from 'html-react-parser/dist/html-react-parser';
+import parse from 'html-react-parser';
 import {motion, useAnimation } from 'framer-motion'
 import {useInView } from "react-intersection-observer";
+import {STRAPI_URL} from "../Helpers";
 import Menu from "../Menu";
 import axios from "axios";
 
@@ -59,16 +60,19 @@ const Services = (props) => {
     }
 
     useEffect(() => {
-        let path = window.location.href.split('/')[4]
-        fetch(`${process.env.PUBLIC_URL}/data/${path}.json`)
-            .then(response => response.json())
-            .then((dataResponse) => setData(dataResponse))
+        const path = "social-network"
 
-        axios.get('http://localhost:1337/site-web')
-            .then((res)=> {
-                setStrapi(res.data)
-                console.log(strapi)
+    console.log("=====>",STRAPI_URL);
+
+        fetch(`${STRAPI_URL}/${path}`)
+            .then(response => response.json())
+            .then((dataResponse) => {
+                console.log('==============>',dataResponse);
+                /*return null*/
+                return setData(dataResponse)
             })
+
+
         if(inView){
             animation.start('visible')
         }
