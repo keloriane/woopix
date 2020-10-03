@@ -16,18 +16,6 @@ const ServiceOption = ({title, price, list}) => {
 
 }
 
-ServiceOption.defaultProps  = {
-    title : 'Options Incluses',
-    price : '',
-    list : [
-        'Création de site en CMS sur base de Template (WordPress, Joomla ) ou PHP (site sur mesure)',
-        'L’insertion de Logo, Medias, Texte ( Fournis par vos soins )',
-        'Une version Responsive ( Smartphone & Tablette)',
-        'Un référencement naturel sur Google',
-        'Installation du site sur les moteurs de recherche',
-        'Demie journée de formation et information',
-    ]
-}
 
 const Container = styled.div`
 background:  ${props => props.theme.blue};

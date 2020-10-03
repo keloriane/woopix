@@ -10,11 +10,11 @@ import  OurServices  from "./pages/OurServices/";
 import Contact from "./pages/Contact/"
 import {ServicesHelper as Services } from "./pages/Helpers";
 
+
 const theme = {
     green: '#8DC63F',
     blue: '#1B065E'
 };
-
 
 function App() {
   return (

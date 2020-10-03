@@ -6,7 +6,7 @@ import {withRouter} from "react-router-dom";
 import parse from 'html-react-parser';
 import {motion, useAnimation } from 'framer-motion'
 import {useInView } from "react-intersection-observer";
-import Menu from "../Menu";
+import {STRAPI_URL} from "../Helpers";
 
 
 
@@ -60,10 +60,17 @@ const Services = (props) => {
     }
 
     useEffect(() => {
-        let path = window.location.href.split('/')[4]
-        fetch(`${process.env.PUBLIC_URL}/data/${path}.json`)
+        const path = "social-network"
+
+    console.log("=====>",STRAPI_URL);
+
+        fetch(`${STRAPI_URL}/${path}`)
             .then(response => response.json())
-            .then((dataResponse) => setData(dataResponse))
+            .then((dataResponse) => {
+                console.log('==============>',dataResponse);
+                /*return null*/
+                return setData(dataResponse)
+            })
 
         if(inView){
             animation.start('visible')

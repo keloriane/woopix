@@ -12,13 +12,6 @@ const ServicesItem = ({title, subtitle, price, text}) => {
 
 }
 
-ServicesItem.defaultProps = {
-    title: 'Site Vitrine ',
-    subTitle: 'àpd de 1199€\n',
-    text: 'Le site VITRINE de chez Woopix est adapté aux PME du style Restaurant, Brasserie, Salon de Coiffure, ' +
-        'Boulangerie, Sandwicherie, Profession Libérale… Des entreprises qui veulent afficher des galeries photos, des' +
-        ' tarifs, ou bien une fiche de réservation, une map, un chat…\n'
-}
 
 export default withTheme(ServicesItem)
 
