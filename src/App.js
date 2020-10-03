@@ -17,7 +17,6 @@ const theme = {
 
 const routes = [
     { path: "/", name: "Home", Component: Home },
-
 ]
 
 
