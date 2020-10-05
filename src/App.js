@@ -9,6 +9,7 @@ import { Menu } from "./pages/Menu/";
 import  OurServices  from "./pages/OurServices/";
 import Contact from "./pages/Contact/"
 import {ServicesHelper as Services } from "./pages/Helpers";
+import ContactUs from "./pages/ContatUs";
 
 
 const theme = {
@@ -26,6 +27,7 @@ function App() {
   return (
     <HashRouter basename="/woopix/">
       <Switch>
+          <>
         <div className="App">
           <ThemeProvider theme={theme}>
           <Route exact path="/" component={Home} />
@@ -33,10 +35,12 @@ function App() {
           <Route exact path="/portfolio" component={Portfolio} />
           <Route exact path="/tarifs-sites" component={Services(false)}/>
           <Route exact path="/gestion-reseaux-sociaux" component={Services(true)}/>
-          <Route exact path="/nos-services" component={OurServices} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/autres-services" component={OurServices} />
+          <Route exact path="/woopix-autres-services" component={Services(true)} />
+          <Route exact path="/contact" component={ContactUs} />
           </ThemeProvider>
         </div>
+        </>
       </Switch>
     </HashRouter>
   );

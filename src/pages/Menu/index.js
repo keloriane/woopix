@@ -52,6 +52,9 @@ const Menu = (props) => {
           <li className="menu-items">
             <Link to="/gestion-reseaux-sociaux" onClick={props.animation6}>Réseaux Sociaux</Link>
           </li>
+          <li className="menu-items">
+            <Link to="/woopix-autres-services">Autres Services</Link>
+          </li>
         </ul>
       </div>
     </MenuContainer>
