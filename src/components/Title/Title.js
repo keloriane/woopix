@@ -20,7 +20,7 @@ const Title = (props) => {
           font-weight: bold;
 
           text-transform: uppercase;
-          color: #1b065e;
+          color: ${props => props.theme.blue};
           display: flex;
           align-items: center;
         }
@@ -53,7 +53,7 @@ const Title = (props) => {
                 font-size: 34px;
                 line-height: 107.33%;
                 text-transform: uppercase;
-                color: #1b065e;
+                color: ${props=>props.theme.blue};
                 display: flex;
                 align-items: center;
               }
@@ -92,7 +92,7 @@ const Title = (props) => {
 
                 text-transform: uppercase;
 
-                color: #1b065e;
+                color: ${props=>props.theme.blue};
               }
             }
           }
@@ -118,21 +118,7 @@ const Title = (props) => {
           }
     }
     `
-    useEffect(()=>{
-        //Split each word from a tag
-        const target = document.querySelectorAll('.text-letter');
-        const results = Splitting({ target: target, by: 'chars' });
-        console.log(results);
-        const char = document.querySelectorAll('.char')
-        console.log(char);
 
-
-
-
-
-
-
-    },[])
     return (
         <TitleMain >
         <div className="main-title">

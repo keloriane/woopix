@@ -8,6 +8,27 @@ const GlobalContainer = (props) => {
 export default withTheme(GlobalContainer);
 
 const Container = styled.div`
+.button-container{
+position: absolute;
+right: -200px;
+.next{
+  background: none;
+  border-radius:100% ;
+  border: 2px solid ${props => props.theme.green};
+  width: 50px;
+  height: 50px;
+  
+}
+.prev{
+  background: none;
+  border-radius:100% ;
+  border: 2px solid ${props => props.theme.green};
+  width: 50px;
+  height: 50px;
+  
+}
+
+}
 
   p h1 h2 h3 {
     font-family: "Futura PT", sans-serif;
@@ -72,9 +93,20 @@ const Container = styled.div`
   /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
   @media (min-width: 596px) {
     .call-to-action {
+  
+      button{
+         &.rdv{
+            width: 239px;
+          }
+      }
+
+    }
       button {
         width: 308.2px;
         height: 68.7px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
         a {
           font-weight: 600;
           font-size: 30.489px;
@@ -95,6 +127,9 @@ const Container = styled.div`
       button {
         width: 171px;
         height: 38px;
+         &.rdv{
+            width: 239px;
+          }
 
         a {
           font-weight: 600;
@@ -108,10 +143,7 @@ const Container = styled.div`
   /* Extra large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) {
   }
-`;
-
-export const TitleMain = styled.div`
-    .main-title {
+  .main-title {
       display: flex;
       font-style: normal;
       align-items: center;
@@ -124,7 +156,7 @@ export const TitleMain = styled.div`
           font-weight: bold;
 
           text-transform: uppercase;
-          color: #1b065e;
+          color: ${props=>props.theme.blue};
           display: flex;
           align-items: center;
         }
@@ -157,7 +189,7 @@ export const TitleMain = styled.div`
                 font-size: 34px;
                 line-height: 107.33%;
                 text-transform: uppercase;
-                color: #1b065e;
+                color: ${props=>props.theme.blue};
                 display: flex;
                 align-items: center;
               }
@@ -196,7 +228,119 @@ export const TitleMain = styled.div`
 
                 text-transform: uppercase;
 
-                color: #1b065e;
+                color: ${props=>props.theme.blue};
+              }
+            }
+          }
+    }
+    @media screen and (min-width: 992px){
+        .main-title {
+            display: flex;
+            max-width: 545px;
+            width: 100%;
+            height: 165px;
+            .number-title {
+              h2 {
+                font-size: 134.475px;
+                line-height: 107.33%;
+              }
+            }
+            .title {
+              h2 {
+                font-size: 59.7665px;
+                line-height: 107.33%;
+              }
+            }
+          }
+`;
+
+export const TitleMain = styled.div`
+    .main-title {
+      display: flex;
+      font-style: normal;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      .title {
+        position: absolute;
+
+        h2 {
+          font-weight: bold;
+
+          text-transform: uppercase;
+          color: ${props=>props.theme.blue};
+          display: flex;
+          align-items: center;
+        }
+      }
+      .number-title {
+        position: absolute;
+
+        h2 {
+          font-style: normal;
+
+          text-transform: uppercase;
+          color: #ececec;
+        }
+      }
+    }
+    @media screen and (max-width: 596px){
+        .main-title {
+            display: flex;
+            font-style: normal;
+            align-items: center;
+            position: relative;
+         
+            width: 311px;
+            height: 72px;
+            .title {
+              position: absolute;
+              left: 81px;
+              h2 {
+                font-weight: bold;
+                font-size: 34px;
+                line-height: 107.33%;
+                text-transform: uppercase;
+                color: ${props=>props.theme.blue};
+                display: flex;
+                align-items: center;
+              }
+            }
+            .number-title {
+              position: absolute;
+
+              h2 {
+                font-style: normal;
+                font-weight: 800;
+                font-size: 92.2247px;
+                line-height: 107.33%;
+                text-transform: uppercase;
+                color: #ececec;
+              }
+            }
+          }
+
+    }
+    @media screen and (min-width: 596px){
+        .main-title {
+            display: flex;
+            width: 530px;
+            height: 160px;
+            .number-title {
+              h2 {
+                font-weight: 800;
+                font-size: 144px;
+              }
+            }
+            .title {
+              left: 147px;
+              h2 {
+                font-size: 64px;
+                line-height: 107.33%;
+
+                text-transform: uppercase;
+
+                color: ${props=>props.theme.blue};
               }
             }
           }

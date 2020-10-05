@@ -1,6 +1,35 @@
 import styled from "styled-components";
 
 export const PortfolioWrapper = styled.div`
+  
+  .rdv{
+    width: 201px;
+  }
+  .button-container{
+  display: flex;
+  width: 300px;
+  }
+   .portfolio-slider {
+               width: 100%;
+              display: flex;
+              overflow: hidden;
+              transition: all .2s ease-in-out;
+              
+              max-width: 1240px;
+              justify-content: flex-start;
+              .slide{
+                min-width: 190px;
+                overflow: hidden;
+                margin: 20px;
+                transition: all .2s ease-in-out;
+                img{
+                  transition: all .2s ease-in-out;
+                  display: block;
+                  object-fit: cover;
+                  
+               }
+        }
+        }
     #global-wrapper{
      
     }
@@ -43,16 +72,19 @@ export const PortfolioWrapper = styled.div`
             justify-content: center;
             position: relative;
             .portfolio-slider {
-              height: 295px;
-              display: flex;
-              width: 100%;
-              
-        
-              .swiper-slide {
-                min-width: 195px;
-                max-width: 160.75px;
-              }
-            }
+               width: 100%;
+        display: flex;
+        overflow: hidden;
+        .slide{
+          min-height: 320px;
+          overflow: hidden;
+          img{
+          
+          display: block;
+          object-fit: cover;
+          max-width: 320px; 
+          }
+        }
           }
         }
       }
@@ -94,8 +126,19 @@ export const PortfolioWrapper = styled.div`
             }
           }
           .portfolio-slider {
-            display: flex;
-            margin-left: 5px;
+               width: 100%;
+        display: flex;
+        overflow: hidden;
+        .slide{
+          min-height: 300px;
+          overflow: hidden;
+          img{
+ 
+          display: block;
+          object-fit: cover;
+          max-width: 320px; 
+          }
+        }
           }
         }
       }
@@ -106,28 +149,35 @@ export const PortfolioWrapper = styled.div`
             display:flex;
             justify-content: flex-start;
             position: relative;
-            .card-wrapper{
-              display: flex;
-              position: absolute;
-              
-              .slide{
-                flex:1;
-                min-height:320px
-              }
-            }
+          }
     @media screen and (min-width: 992px){
     
       #portfolio{
-        
         .portfolio-wrapper{
           max-width: 1168px;
           display: flex;
           justify-self: flex-start;
           justify-content: center;
+          flex-direction: column;
           .portfolio-container{
             display:flex;
             justify-content: flex-start;
             position: relative;
+            .portfolio-slider {
+               width: 100%;
+              display: flex;
+              overflow: hidden;
+              .slide{
+                min-height: 320px;
+                overflow: hidden;
+                img{
+                  
+                  display: block;
+                  object-fit: cover;
+                  max-width: 320px; 
+               }
+        }
+          }
             .card-wrapper{
               display: flex;
               position: absolute;
@@ -150,8 +200,4 @@ export const PortfolioWrapper = styled.div`
    
       position: relative;
   }
-    img{
-      height: 100%;
-      max-height:320px;
-    }
   `;

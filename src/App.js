@@ -5,15 +5,17 @@ import {createGlobalStyle, ThemeProvider} from "styled-components";
 import  Home from './pages/Home';
 import {About} from './pages/About';
 import Portfolio from "./pages/Portfolio/";
-import { Menu } from "./pages/Menu/";
+import  Menu  from "./pages/Menu/";
 import  OurServices  from "./pages/OurServices/";
 import Contact from "./pages/Contact/"
 import {ServicesHelper as Services } from "./pages/Helpers";
+import Project from "./pages/Project/"
+
 
 
 const theme = {
     green: '#8DC63F',
-    blue: '#1B065E'
+    blue: '#455FA3'
 };
 
 const routes = [
@@ -23,17 +25,19 @@ const routes = [
 
 function App() {
   return (
-    <HashRouter basename="/woopix/">
+    <HashRouter>
       <Switch>
         <div className="App">
+            <Menu />
           <ThemeProvider theme={theme}>
           <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
+          <Route exact path="/a-propos" component={About} />
           <Route exact path="/portfolio" component={Portfolio} />
           <Route exact path="/tarifs-sites" component={Services(false)}/>
           <Route exact path="/gestion-reseaux-sociaux" component={Services(true)}/>
           <Route exact path="/nos-services" component={OurServices} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/project/:id" component={Project} />
           </ThemeProvider>
         </div>
       </Switch>

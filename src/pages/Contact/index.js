@@ -237,7 +237,7 @@ const Contact = (props) => {
     <>
 
       <ContactWrapper>
-        <div id="contact">
+        <section id="contact">
           <div className="contact-wrapper">
             <Title
               num={"05"}
@@ -262,7 +262,7 @@ const Contact = (props) => {
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </ContactWrapper>
 
     </>
