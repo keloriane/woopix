@@ -13,7 +13,7 @@ const Menu = (props) => {
         display: flex;
         justify-content: space-around;
         .menu-items {
-          a {
+          
             font-weight: 600;
             font-size: 20px;
             line-height: 26px;
@@ -24,7 +24,7 @@ const Menu = (props) => {
  
             &:hover {
               color: ${(props) => props.theme.green};
-            }
+            
           }
         }
       }
@@ -51,6 +51,9 @@ const Menu = (props) => {
           </li>
           <li className="menu-items">
             <Link to="/gestion-reseaux-sociaux">Réseaux Sociaux</Link>
+          </li>
+          <li className="menu-items">
+            <Link to="/woopix-autres-services">Autres Services</Link>
           </li>
         </ul>
       </div>

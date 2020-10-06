@@ -13,19 +13,13 @@
     "gsap": "^3.5.1",
     "html-react-parser": "^0.14.0",
     "netlify-cli": "^2.64.1",
-    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-flickity": "^1.0.8",
-    "react-flickity-component": "^3.5.0",
-    "react-intersection-observer": "^8.28.6",
-    "react-progressive-image": "^0.6.0",
-    "react-responsive-carousel": "^3.2.10",
+    "react-intersection-observer": "^8.29.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "splitting": "^1.0.6",
-    "styled-components": "^5.2.0",
-    "swiper": "^6.2.0"
+    "react-scroll-section": "^3.0.0",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

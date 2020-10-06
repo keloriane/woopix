@@ -4,7 +4,7 @@ import CallToAction from "./../../components/CallToAction/";
 import Title from "./../../components/Title/Title.js";
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger";
-import {withRouter} from "react-router-dom"
+import {Link, withRouter} from "react-router-dom"
 
 gsap.registerPlugin(ScrollTrigger)
 const OurServices = (props) => {
@@ -53,8 +53,29 @@ const OurServices = (props) => {
     },[])
 
     const ServiceWrapper = styled.div`
+.call-to-action{
+text-align: center;
+.call-services{
+      width: 204.2px;
+      height: 38.7px;
+      border: 1px solid #8DC63F;
+      box-sizing: border-box;
+      border-radius: 2px;
+      background-color: ${props => props.theme.green};
+      color: white;
+      margin: 0 auto;
+      a{
+        text-decoration:none;
+        color: white;
+        font-family: "Futura PT";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17.489px;
+        line-height: 39px;
+      }
+}
 
-
+}
      
       #our-service{
        width: 100%;
@@ -213,6 +234,7 @@ color: rgba(0, 0, 0, 0.6);
             max-width: 545px;
             width: 100%;
             height: 165px;
+            align-self: flex-end;
             .number-title {
               h2 {
                 font-size: 134.475px;
@@ -269,7 +291,11 @@ color: rgba(0, 0, 0, 0.6);
                                 </p>
                             </div>
                         </div>
-                    <CallToAction link="/nos-services" buttonTxt="Nos services"/>
+                <div className="call-to-action">
+                    <button className={"call-services"}>
+                        <Link to={`/`}>Nos services</Link>
+                    </button>
+                </div>
             </section>
 
         </ServiceWrapper>

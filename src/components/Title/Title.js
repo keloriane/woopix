@@ -1,8 +1,6 @@
 import React,{useEffect} from 'react'
 import styled from "styled-components"
-import "splitting/dist/splitting.css";
-import "splitting/dist/splitting-cells.css";
-import Splitting from "splitting";
+
 import gsap from "gsap"
 
 const Title = (props) => {
@@ -47,7 +45,7 @@ const Title = (props) => {
             height: 72px;
             .title {
               position: absolute;
-              left: 81px;
+              left: 107px;
               h2 {
                 font-weight: bold;
                 font-size: 34px;

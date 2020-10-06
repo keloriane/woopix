@@ -8,6 +8,9 @@ const GlobalContainer = (props) => {
 export default withTheme(GlobalContainer);
 
 const Container = styled.div`
+
+
+
 .button-container{
 position: absolute;
 right: -200px;
@@ -125,10 +128,18 @@ right: -200px;
       justify-content: center;
 
       button {
-        width: 171px;
+        width: 203px;
         height: 38px;
          &.rdv{
             width: 239px;
+          }
+         &.call-services{
+            width: 270px;
+            border: 1px solid #8DC63F;
+            box-sizing: border-box;
+            border-radius: 2px;
+            background-color: #fff;
+            color: ${props=> props.theme.green};
           }
 
         a {
@@ -183,7 +194,7 @@ right: -200px;
             height: 72px;
             .title {
               position: absolute;
-              left: 81px;
+              left: 107px;
               h2 {
                 font-weight: bold;
                 font-size: 34px;

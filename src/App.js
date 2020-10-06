@@ -9,8 +9,7 @@ import  Menu  from "./pages/Menu/";
 import  OurServices  from "./pages/OurServices/";
 import Contact from "./pages/Contact/"
 import {ServicesHelper as Services } from "./pages/Helpers";
-import Project from "./pages/Project/"
-
+import ContactUs from "./pages/ContatUs";
 
 
 const theme = {
@@ -27,8 +26,9 @@ function App() {
   return (
     <HashRouter>
       <Switch>
+          <>
         <div className="App">
-            <Menu />
+
           <ThemeProvider theme={theme}>
           <Route exact path="/" component={Home} />
           <Route exact path="/a-propos" component={About} />
@@ -36,10 +36,10 @@ function App() {
           <Route exact path="/tarifs-sites" component={Services(false)}/>
           <Route exact path="/gestion-reseaux-sociaux" component={Services(true)}/>
           <Route exact path="/nos-services" component={OurServices} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/project/:id" component={Project} />
+          <Route exact path="/contact" component={ContactUs} />
           </ThemeProvider>
         </div>
+        </>
       </Switch>
     </HashRouter>
   );
