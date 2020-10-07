@@ -8,26 +8,38 @@ const GlobalContainer = (props) => {
 export default withTheme(GlobalContainer);
 
 const Container = styled.div`
+button{
+text-align: left;
+}
+@media (max-width: 596px){
 
-
+}
 
 .button-container{
 position: absolute;
 right: -200px;
+z-index: 100;
+margin: 10px;
 .next{
   background: none;
   border-radius:100% ;
-  border: 2px solid ${props => props.theme.green};
+  border: 2px solid white;
   width: 50px;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
   
 }
 .prev{
   background: none;
   border-radius:100% ;
-  border: 2px solid ${props => props.theme.green};
+  border: 2px solid white;
   width: 50px;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
   
 }
 
@@ -61,6 +73,9 @@ right: -200px;
   }
 
   @media (max-width: 596px) {
+  .button-container{
+  z-index: 150 !important;
+}
     .call-to-action {
       button {
         width: 172px;

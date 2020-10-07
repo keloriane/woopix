@@ -2,6 +2,26 @@ import styled from "styled-components";
 
 export const PortfolioWrapper = styled.div`
   
+  @media screen and (min-width: 596px){
+    #portfolio {
+      font-family: "Futura PT", sans-serif;
+      position: relative;
+      width: 61%;
+      max-width:1380px;
+      margin: 0 auto;
+     
+            .green-background {
+              position: absolute;
+              width: 73% !important;
+              height: 277px;
+              background-color: ${(props) => props.theme.green};
+              
+              top: 24%;
+              left: 26%;
+            }
+    }
+  
+  }
   .rdv{
     width: 201px;
   }
@@ -14,7 +34,7 @@ export const PortfolioWrapper = styled.div`
               display: flex;
               overflow: hidden;
               transition: all .2s ease-in-out;
-              
+              margin-top: 50px;
               max-width: 1240px;
               justify-content: flex-start;
               .slide{
@@ -43,15 +63,18 @@ export const PortfolioWrapper = styled.div`
      
             .green-background {
               position: absolute;
-              width: 71%;
+              width: 73% !important;
               height: 277px;
               background-color: ${(props) => props.theme.green};
-              z-index: -1;
-              top: 38%;
+              
+              top: 24%;
               left: 26%;
             }
-    }
+    }    
     @media screen and (max-width: 596px) {
+      .green-background{
+        top: 15% !important;
+      }
       #portfolio {
         max-width: 1015px;
         height: 552px;
@@ -72,6 +95,7 @@ export const PortfolioWrapper = styled.div`
             justify-content: center;
             position: relative;
             .portfolio-slider {
+              margin-top: 100px;
                width: 100%;
         display: flex;
         overflow: hidden;
@@ -129,6 +153,7 @@ export const PortfolioWrapper = styled.div`
                width: 100%;
         display: flex;
         overflow: hidden;
+        margin-top: 50px;
         .slide{
           min-height: 300px;
           overflow: hidden;
@@ -151,6 +176,7 @@ export const PortfolioWrapper = styled.div`
             position: relative;
           }
     @media screen and (min-width: 992px){
+     
     
       #portfolio{
         .portfolio-wrapper{
@@ -167,6 +193,7 @@ export const PortfolioWrapper = styled.div`
                width: 100%;
               display: flex;
               overflow: hidden;
+              margin-top: 50px;
               .slide{
                 min-height: 320px;
                 overflow: hidden;
@@ -188,7 +215,7 @@ export const PortfolioWrapper = styled.div`
               }
             }
             .green-background{
-              width: 60%;
+              width: 90% !important;
             }
           }
 

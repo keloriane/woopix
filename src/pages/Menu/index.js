@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect} from "react";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
+import gsap from "gsap";
+import Burger from "./Burger";
 
 const Menu = (props) => {
+
+
+
+  useEffect(()=>{
+
+  },[])
+
+
+
   const MenuContainer = styled.div`
     .menu {
       width: 100%;
@@ -21,6 +32,7 @@ const Menu = (props) => {
             font-family: "Futura PT";
             font-style: normal;
             color: ${(props) => props.theme.blue};
+            opacity: 1 !important;
  
             &:hover {
               color: ${(props) => props.theme.green};
@@ -30,7 +42,13 @@ const Menu = (props) => {
       }
     }
   `;
+
+
+
+
+
   return (
+      <>
     <MenuContainer className="Menu-container">
       <div className="menu">
         <ul className="main-menu">
@@ -56,9 +74,14 @@ const Menu = (props) => {
             <Link to="/woopix-autres-services">Autres Services</Link>
           </li>
         </ul>
+        <button>
+          menu
+        </button>
       </div>
     </MenuContainer>
+     <Burger />
+        </>
   );
 };
 
-export default withRouter(Menu);
+export default Menu;

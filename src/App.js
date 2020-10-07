@@ -10,6 +10,9 @@ import  OurServices  from "./pages/OurServices/";
 import Contact from "./pages/Contact/"
 import {ServicesHelper as Services } from "./pages/Helpers";
 import ContactUs from "./pages/ContatUs";
+import Navbar from "./pages/Navbar/Navbar";
+import Container from "./global/Container";
+
 
 
 const theme = {
@@ -29,6 +32,7 @@ function App() {
           <>
         <div className="App">
 
+            <Navbar />
           <ThemeProvider theme={theme}>
           <Route exact path="/" component={Home} />
           <Route exact path="/a-propos" component={About} />

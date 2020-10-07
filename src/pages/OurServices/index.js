@@ -10,10 +10,18 @@ gsap.registerPlugin(ScrollTrigger)
 const OurServices = (props) => {
 
 
-    const [service, setService] = useState({})
+
+
+    const [service, setService] = useState([])
     useEffect(()=>{
         let titleArray = [];
+    fetch("http://localhost:1337/info-services")
+        .then((res)=> {
+            console.log(res.json())
+            setService(service)
 
+
+        })
         function splitWord(word) {
             return [...word]
                 .map(letter => `<span class="chars-service">${letter}</span>`)
@@ -48,9 +56,10 @@ const OurServices = (props) => {
         ourServicesTl
             .from('#our-service', .5,{opacity: 0})
             .staggerFrom(charss,.3, {y: "100%", opacity: 0}, .03)
-            .fromTo("li",.3, {y: "100%", opacity: 0, stagger:.03, delay:-.3},{y: "0%", opacity: 1, stagger:.03, delay:-.3})
+            .fromTo("ol li",.3, {y: "100%", opacity: 0, stagger:.03, delay:-.3},{y: "0%", opacity: 1, stagger:.03, delay:-.3})
             .fromTo(".text-container__services",.3,{y:"50%", opacity:0},{y:"0%",opacity:1})
     },[])
+
 
     const ServiceWrapper = styled.div`
 .call-to-action{
@@ -229,6 +238,14 @@ color: rgba(0, 0, 0, 0.6);
           }
     }
     @media screen and (min-width: 992px){
+    #our-service{
+      .call-to-action{
+        display:flex;
+        justify-content: flex-start;
+        max-width: 638px;
+        width: 100%;
+      }
+    }
         .main-title {
             display: flex;
             max-width: 545px;
@@ -248,10 +265,13 @@ color: rgba(0, 0, 0, 0.6);
               }
             }
           }
+          
     }
   
     
   `;
+
+    console.log("service =>",service)
 
     return (
         <ServiceWrapper>

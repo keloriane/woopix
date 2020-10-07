@@ -9,11 +9,14 @@ import Contact from "../Contact/";
 import OurServices from "../OurServices";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import Footer from "./../Footer/";
 import {
     ScrollingProvider,
     useScrollSection,
     Section,
 } from 'react-scroll-section';
+
+
 
 gsap.registerPlugin(ScrollTrigger)
 const Home = (props) => {
@@ -46,7 +49,8 @@ const Home = (props) => {
         <HomeContainer>
             <ScrollingProvider>
                 <Container>
-                    <Menu/>
+
+
                     <div className="home">
                         <div className="home-wrapper">
                             <div className="bg-green">
@@ -111,8 +115,12 @@ const Home = (props) => {
                             <div className="image-container">
                                 <img className="home-image" src={homeImage} alt=""/>
                             </div>
-                            <div className="call-to-action-home">
-                                <button className="home-button">En savoir plus</button>
+                            <div className="call-to-action-home mobile-call">
+                                <button className="home-button">
+                                    <a href="">
+                                        En savoir plus
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -132,6 +140,7 @@ const Home = (props) => {
                 <Section id={"contactez-nous"}>
                     <Contact/>
                 </Section>
+                <Footer />
             </ScrollingProvider>
         </HomeContainer>
     );
@@ -222,7 +231,31 @@ font-size: 18px;
   }
 
   @media screen and (max-width: 992px) {
+      .mobile-call{
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        margin-top: 50px;
+          button{
+          width: 204.84px;
+height: 44.54px;
+
+
+background: #8DC63F;
+border: 1px solid #8DC63F;
+box-sizing: border-box;
+border-radius: 2px;
+a{
+  text-decoration:none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+          }
+        }
     .home {
+      margin: 100px auto 100px;
+      
       .home-wrapper {
       }
       .title-home-container {
@@ -240,6 +273,7 @@ font-size: 18px;
         .call-to-action-home {
           display: none;
         }
+    
       }
       .image-container {
         display: block;
@@ -345,92 +379,3 @@ font-size: 18px;
 `;
 
 
-export const Menu = (props) => {
-
-
-    const MenuContainer = styled.div`
-    .menu {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-
-      .main-menu {
-        display: flex;
-        justify-content: space-around;
-        .menu-items {
-          p {
-            cursor:pointer;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 26px;
-            /* identical to box height */
-            font-family: "Futura PT";
-            font-style: normal;
-            color: ${(props) => props.theme.blue};
- 
-            &:hover {
-              color: ${(props) => props.theme.green};
-            }
-          }
-        }
-      }
-    }
-  `;
-    const aboutSection = useScrollSection('about-us');
-    const servicesSection = useScrollSection('nos-services')
-    const folioSection = useScrollSection('nos-realisation')
-    const contactSection = useScrollSection('contactez-nous')
-
-    return (
-        <MenuContainer className="Menu-container">
-            <div className="menu">
-                <ul className="main-menu">
-                    <li className="menu-items">
-                        <p>Accueil</p>
-                    </li>
-                    <li className="menu-items" onClick={aboutSection.onClick}>
-                        <p>
-                            A propos
-                        </p>
-                    </li>
-                    <li className="menu-items" onClick={servicesSection.onClick}>
-                        <p>
-
-                            Services
-                        </p>
-                    </li>
-                    <li className="menu-items" onClick={folioSection.onClick}>
-                        <p>
-
-                            Réalisation
-                        </p>
-                    </li>
-                    <li className="menu-items">
-                        <p>
-
-                            Site
-                        </p>
-                    </li>
-                    <li className="menu-items">
-                        <p>
-
-                            Réseaux Sociaux
-                        </p>
-                    </li>
-                    <li className="menu-items">
-                        <p>
-                            Autres Services
-
-                        </p>
-                    </li>
-                    <li className="menu-items" onClick={contactSection.onClick}>
-                        <p>
-                            Contact
-
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </MenuContainer>
-    );
-};

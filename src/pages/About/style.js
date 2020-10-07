@@ -172,7 +172,9 @@ export const AboutWrapper = styled.div`
           }
           .call-to-action {
               display: flex;
-              justify-content: center;
+              justify-content: flex-start;
+              width: 480px;
+    margin: 0 auto;
 
             button {
               width: 171px;

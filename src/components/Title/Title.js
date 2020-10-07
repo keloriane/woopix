@@ -12,7 +12,11 @@ const Title = (props) => {
       position: relative;
       width: 100%;
       .title {
+      
         position: absolute;
+         .inner-title{
+      display: flex;
+      }
 
         h2 {
           font-weight: bold;

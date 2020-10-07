@@ -7,7 +7,7 @@ const Footer = (props) => {
       width: 91%;
       height: 215px;
       position: absolute;
-      bottom: 0;
+ 
       background-color: ${(props) => props.theme.green};
       z-index: -1;
     }

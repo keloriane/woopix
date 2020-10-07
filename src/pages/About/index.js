@@ -84,8 +84,14 @@ export const About = (props) => {
                                     <h2>01</h2>
                                 </div>
                                 <div className="title">
-                                    <h2 className="text-letter-about">à propos</h2>
-                                    <h2 className="text-letter-about">de woopix</h2>
+                                    <div className="inner-title">
+                                    <h2 className="text-letter-about">à </h2> <h2 className="text-letter-about">  propos</h2>
+
+                                    </div>
+                                    <div className="inner-title">
+                                    <h2 className="text-letter-about">de </h2><h2 className="text-letter-about"> woopix</h2>
+
+                                    </div>
                                 </div>
                             </div>
 
