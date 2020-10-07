@@ -413,12 +413,8 @@ font-weight: bold;
                 <p className="time">10:00 ~ 18.00</p>
               </div>
             </div>
-          <div className="call-to-action">
-            <button>
-              <Link to="/services">En savoir plus</Link>
-            </button>
           </div>
-          </div>
+
         </section>
       </ContactWrapper>
 

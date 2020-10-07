@@ -73,6 +73,7 @@ text-align: center;
       background-color: ${props => props.theme.green};
       color: white;
       margin: 0 auto;
+      text-align: left;
       a{
         text-decoration:none;
         color: white;
@@ -244,6 +245,9 @@ color: rgba(0, 0, 0, 0.6);
         justify-content: flex-start;
         max-width: 638px;
         width: 100%;
+        button{
+          
+        }
       }
     }
         .main-title {

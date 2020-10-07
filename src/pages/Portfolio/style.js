@@ -115,6 +115,8 @@ export const PortfolioWrapper = styled.div`
     }
     @media screen and (min-width: 596px) {
     .call-to-action{
+        display: flex;
+    align-items: center;
     button{
         width: 219px;
     height: 53px;
