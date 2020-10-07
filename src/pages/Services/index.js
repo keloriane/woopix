@@ -5,7 +5,6 @@ import ServiceBlock from "./components/ServiceBlock";
 import {withRouter} from "react-router-dom";
 import parse from 'html-react-parser';
 import {motion, useAnimation } from 'framer-motion'
-import {useInView } from "react-intersection-observer";
 import {STRAPI_URL} from "../Helpers";
 import Menu from "../Menu";
 import axios from "axios";
@@ -16,10 +15,7 @@ const Services = (props) => {
     const [data, setData] = useState(null);
     const animation= useAnimation();
     const [strapi, setStrapi] = useState([])
-    const [contentRef, inView] = useInView({
-        triggerOnce: true,
-        // rootMargin: '-300px'
-    })
+
 
     const parent = {
         initial: { y: 50,opacity:0},
@@ -66,10 +62,8 @@ const Services = (props) => {
                 return setData(dataResponse)
             })
 
-        if(inView){
-            animation.start('visible')
-        }
-    }, [animation, inView]);
+
+    }, [animation]);
 
     if (!data) {
         return <p>loading..</p>;
@@ -89,7 +83,7 @@ const Services = (props) => {
 
 
             <motion.div className={'sub-container'}
-                 ref={contentRef}
+
                  animate={animation}
                  initial={'hidden'}
                  variants={{

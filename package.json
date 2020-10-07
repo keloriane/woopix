@@ -9,7 +9,6 @@
     "axios": "^0.20.0",
     "dot-env": "^0.0.1",
     "emailjs-com": "^2.6.3",
-    "dot-env": "^0.0.1",
     "framer-motion": "^2.7.5",
     "gh-pages": "^3.1.0",
     "gsap": "^3.5.1",
@@ -17,20 +16,13 @@
     "netlify-cli": "^2.64.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-flickity": "^1.0.8",
-    "react-flickity-component": "^3.5.0",
-    "react-intersection-observer": "^8.28.6",
     "react-notifications": "^1.7.2",
     "react-helmet": "^6.1.0",
-    "react-intersection-observer": "^8.29.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "sendmail": "^1.6.1",
-    "splitting": "^1.0.6",
     "styled-components": "^5.2.0",
-    "swiper": "^6.2.0"
-    "react-scroll-section": "^3.0.0",
-    "styled-components": "^5.2.0"
+    "react-scroll-section": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
