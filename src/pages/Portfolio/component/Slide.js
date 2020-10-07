@@ -1,16 +1,25 @@
 import React from "react";
+import styled from "styled-components";
 
-const Slide = ({slide}) => {
-    const {image, index} = slide
+const Slide = ({data}) => {
 
-
+    const SliderWrapper = styled.div`
+   
+       
+      
+    `
 
     return (
+        <>
 
-        <div className={index}>
-            <img src={image} alt=""/>
-
-        </div>
+            {
+                data.map(slide => (
+                    <div className="slide">
+                        <img src={slide.src} alt=""/>
+                    </div>
+                ))
+            }
+        </>
 
     )
 }

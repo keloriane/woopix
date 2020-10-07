@@ -1,6 +1,55 @@
 import styled from "styled-components";
 
 export const PortfolioWrapper = styled.div`
+  
+  @media screen and (min-width: 596px){
+    #portfolio {
+      font-family: "Futura PT", sans-serif;
+      position: relative;
+      width: 61%;
+      max-width:1380px;
+      margin: 0 auto;
+     
+            .green-background {
+              position: absolute;
+              width: 73% !important;
+              height: 277px;
+              background-color: ${(props) => props.theme.green};
+              
+              top: 24%;
+              left: 26%;
+            }
+    }
+  
+  }
+  .rdv{
+    width: 201px;
+  }
+  .button-container{
+  display: flex;
+  width: 300px;
+  }
+   .portfolio-slider {
+               width: 100%;
+              display: flex;
+              overflow: hidden;
+              transition: all .2s ease-in-out;
+              margin-top: 50px;
+              max-width: 1240px;
+              justify-content: flex-start;
+              .slide{
+                min-width: 190px;
+                overflow: hidden;
+                margin: 20px;
+                transition: all .2s ease-in-out;
+                img{
+                  transition: all .2s ease-in-out;
+                  display: block;
+                  object-fit: cover;
+                  
+               }
+        }
+        }
     #global-wrapper{
      
     }
@@ -14,15 +63,18 @@ export const PortfolioWrapper = styled.div`
      
             .green-background {
               position: absolute;
-              width: 71%;
+              width: 73% !important;
               height: 277px;
               background-color: ${(props) => props.theme.green};
-              z-index: -1;
-              top: 38%;
+              
+              top: 24%;
               left: 26%;
             }
-    }
+    }    
     @media screen and (max-width: 596px) {
+      .green-background{
+        top: 15% !important;
+      }
       #portfolio {
         max-width: 1015px;
         height: 552px;
@@ -43,16 +95,20 @@ export const PortfolioWrapper = styled.div`
             justify-content: center;
             position: relative;
             .portfolio-slider {
-              height: 295px;
-              display: flex;
-              width: 100%;
-              
-        
-              .swiper-slide {
-                min-width: 195px;
-                max-width: 160.75px;
-              }
-            }
+              margin-top: 100px;
+               width: 100%;
+        display: flex;
+        overflow: hidden;
+        .slide{
+          min-height: 320px;
+          overflow: hidden;
+          img{
+          
+          display: block;
+          object-fit: cover;
+          max-width: 320px; 
+          }
+        }
           }
         }
       }
@@ -94,8 +150,20 @@ export const PortfolioWrapper = styled.div`
             }
           }
           .portfolio-slider {
-            display: flex;
-            margin-left: 5px;
+               width: 100%;
+        display: flex;
+        overflow: hidden;
+        margin-top: 50px;
+        .slide{
+          min-height: 300px;
+          overflow: hidden;
+          img{
+ 
+          display: block;
+          object-fit: cover;
+          max-width: 320px; 
+          }
+        }
           }
         }
       }
@@ -106,28 +174,37 @@ export const PortfolioWrapper = styled.div`
             display:flex;
             justify-content: flex-start;
             position: relative;
-            .card-wrapper{
-              display: flex;
-              position: absolute;
-              
-              .slide{
-                flex:1;
-                min-height:320px
-              }
-            }
+          }
     @media screen and (min-width: 992px){
+     
     
       #portfolio{
-        
         .portfolio-wrapper{
           max-width: 1168px;
           display: flex;
           justify-self: flex-start;
           justify-content: center;
+          flex-direction: column;
           .portfolio-container{
             display:flex;
             justify-content: flex-start;
             position: relative;
+            .portfolio-slider {
+               width: 100%;
+              display: flex;
+              overflow: hidden;
+              margin-top: 50px;
+              .slide{
+                min-height: 320px;
+                overflow: hidden;
+                img{
+                  
+                  display: block;
+                  object-fit: cover;
+                  max-width: 320px; 
+               }
+        }
+          }
             .card-wrapper{
               display: flex;
               position: absolute;
@@ -138,7 +215,7 @@ export const PortfolioWrapper = styled.div`
               }
             }
             .green-background{
-              width: 60%;
+              width: 90% !important;
             }
           }
 
@@ -150,8 +227,4 @@ export const PortfolioWrapper = styled.div`
    
       position: relative;
   }
-    img{
-      height: 100%;
-      max-height:320px;
-    }
   `;

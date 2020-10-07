@@ -5,9 +5,122 @@ import contactImage from "./../../assets/img/contact-image.png";
 import Footer from "./../Footer/";
 import Menu from "./../Menu/"
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import {Link} from "react-router-dom";
 
+gsap.registerPlugin(ScrollTrigger)
 const Contact = (props) => {
   const ContactWrapper = styled.div`
+.main-title {
+      display: flex;
+      font-style: normal;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      .title {
+        position: absolute;
+
+        h2 {
+          font-weight: bold;
+
+          text-transform: uppercase;
+          color: ${props => props.theme.blue};
+          display: flex;
+          align-items: center;
+        }
+      }
+      .number-title {
+        position: absolute;
+
+        h2 {
+          font-style: normal;
+
+          text-transform: uppercase;
+          color: #ececec;
+        }
+      }
+    }
+    @media screen and (max-width: 596px){
+        .main-title {
+            display: flex;
+            font-style: normal;
+            align-items: center;
+            position: relative;
+         
+            width: 311px;
+            height: 72px;
+            .title {
+              position: absolute;
+              left: 107px;
+              h2 {
+                font-weight: bold;
+                font-size: 34px;
+                line-height: 107.33%;
+                text-transform: uppercase;
+                color: ${props=>props.theme.blue};
+                display: flex;
+                align-items: center;
+              }
+            }
+            .number-title {
+              position: absolute;
+
+              h2 {
+                font-style: normal;
+                font-weight: 800;
+                font-size: 92.2247px;
+                line-height: 107.33%;
+                text-transform: uppercase;
+                color: #ececec;
+              }
+            }
+          }
+
+    }
+    @media screen and (min-width: 596px){
+        .main-title {
+            display: flex;
+            width: 530px;
+            height: 160px;
+            .number-title {
+              h2 {
+                font-weight: 800;
+                font-size: 144px;
+              }
+            }
+            .title {
+              left: 147px;
+              h2 {
+                font-size: 64px;
+                line-height: 107.33%;
+
+                text-transform: uppercase;
+
+                color: ${props=>props.theme.blue};
+              }
+            }
+          }
+    }
+    @media screen and (min-width: 992px){
+        .main-title {
+            display: flex;
+            max-width: 545px;
+            width: 100%;
+            height: 165px;
+            .number-title {
+              h2 {
+                font-size: 134.475px;
+                line-height: 107.33%;
+              }
+            }
+            .title {
+              h2 {
+                font-size: 59.7665px;
+                line-height: 107.33%;
+              }
+            }
+          }
+    }
     #contact {
       
       position: relative;
@@ -155,6 +268,7 @@ const Contact = (props) => {
       }
     }
     @media screen and (min-width: 960px) {
+
       #contact {
         .contact-wrapper {
           flex-direction: row;
@@ -186,6 +300,22 @@ const Contact = (props) => {
             right: 205px;
             top: 11%;
           }
+              .call-to-action{
+      button{
+      width: 200.51px;
+height: 63.45px;
+background: #8DC63F;
+border: 1.65336px solid #8DC63F;
+box-sizing: border-box;
+border-radius: 3.30672px;
+a{
+color: white;
+text-decoration:none;
+font-weight: bold;
+
+}
+      }
+    }
           .text-container {
             width: 100%;
             max-width: 474px;
@@ -215,45 +345,67 @@ const Contact = (props) => {
       }
     }
   `;
-  let ContactTl = gsap.timeline({ paused: true });
   useEffect(() => {
+  let ContactTl = gsap.timeline({
+      scrollTrigger:{
+        trigger: "#contact",
+        id: "#contact",
+        start: "center center+=200px",
+
+      }
+     });
+    let titleArray = [];
+
+    function splitWord(word) {
+      return [...word]
+          .map(letter => `<span class="chars-contact">${letter}</span>`)
+          .join("");
+    }
+
+    const words = [...document.querySelectorAll(".text-letter-contact")];
+    // eslint-disable-next-line
+
+    words.map(word => {
+      word.innerHTML = splitWord(word.textContent);
+      const newLetter = [...word.querySelectorAll(".chars-contact")];
+      // eslint-disable-next-line
+      newLetter.map(letter => {
+        titleArray.push(letter);
+      });
+    });
+    const charss = document.querySelectorAll(".chars-contact")
     ContactTl
     .from("image-container, img", .6, { right: "100%" })
-    .staggerFrom(".chars", 0.3, { y: "100%", opacity: 0, delay:-.3 }, 0.03)
-    .staggerFrom("p", 0.3, { y: "100%", opacity: 0, delay:-.3 }, 0.03);
+    .staggerFrom(charss, 0.3, { y: "100%", opacity: 0, delay:-.3 }, 0.03)
+    .staggerFrom(".contact-text", 0.3, { y: "100%", opacity: 0, delay:-.3 }, 0.03);
 
-    ContactTl.play();
+
   }, []);
 
-  const changePage=(e, destination) => {
-    e.preventDefault();
-    ContactTl.reverse();
-    const timelineDuration = ContactTl.duration()*1000;
-    setTimeout(() => {
-        props.history.push(destination);
-      }, timelineDuration);
-  }
+
   return (
     <>
 
       <ContactWrapper>
-        <div id="contact">
+        <section id="contact">
           <div className="contact-wrapper">
-            <Title
-              num={"05"}
-              firstP="prenez"
-              secondP="rendez-vous"
-              className="contact-title"
-            />
+            <div className="main-title">
+              <div className="number-title">
+                <h2 >05</h2>
+              </div>
+              <div className="title">
+                <h2 className="text-letter-contact">Prendre </h2>
+                <h2 className="text-letter-contact">rendez-vous</h2>
+              </div>
+            </div>
 
             <div className="image-container">
               <img src={contactImage} alt="" />
             </div>
             <div className="text-wrapper">
               <div className="text-container">
-                <p>
-                  Rutrum id venenatis gravida porttitor mauris nunc metus.
-                  Aliquet dictumst quam sed turpis velit dignissim.
+                <p className={"contact-text"}>
+                  Prenez contact, nous vous accueillons dans nos bureaux sur Rendez-vous, ou nous venons vous rencontrez chez Vous
                 </p>
               </div>
               <div className="time-opening">
@@ -261,8 +413,13 @@ const Contact = (props) => {
                 <p className="time">10:00 ~ 18.00</p>
               </div>
             </div>
+          <div className="call-to-action">
+            <button>
+              <Link to="/services">En savoir plus</Link>
+            </button>
           </div>
-        </div>
+          </div>
+        </section>
       </ContactWrapper>
 
     </>

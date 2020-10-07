@@ -1,309 +1,302 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import {Swiper, SwiperSlide} from "swiper/react";
 import CallToAction from "./../../components/CallToAction/";
 import Title from "./../../components/Title/Title.js";
-import "swiper/swiper-bundle.css";
-import {withRouter} from "react-router-dom"
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger";
+import {Link, withRouter} from "react-router-dom"
 
+gsap.registerPlugin(ScrollTrigger)
 const OurServices = (props) => {
 
 
-    const [service, setService] = useState({})
+
+
+    const [service, setService] = useState([])
+    useEffect(()=>{
+        let titleArray = [];
+    fetch("http://localhost:1337/info-services")
+        .then((res)=> {
+            console.log(res.json())
+            setService(service)
+
+
+        })
+        function splitWord(word) {
+            return [...word]
+                .map(letter => `<span class="chars-service">${letter}</span>`)
+                .join("");
+        }
+
+        const words = [...document.querySelectorAll(".text-letter-service")];
+        // eslint-disable-next-line
+
+        words.map(word => {
+            word.innerHTML = splitWord(word.textContent);
+            const newLetter = [...word.querySelectorAll(".chars-service")];
+            // eslint-disable-next-line
+            newLetter.map(letter => {
+                titleArray.push(letter);
+            });
+        });
+        const charss = document.querySelectorAll(".chars-service")
+        const ourServicesTl = gsap.timeline({
+
+            scrollTrigger:{
+                trigger: "#our-service",
+                id: "#service",
+                start: "center center+=200px",
+
+
+
+
+
+            }
+        })
+        ourServicesTl
+            .from('#our-service', .5,{opacity: 0})
+            .staggerFrom(charss,.3, {y: "100%", opacity: 0}, .03)
+            .fromTo("ol li",.3, {y: "100%", opacity: 0, stagger:.03, delay:-.3},{y: "0%", opacity: 1, stagger:.03, delay:-.3})
+            .fromTo(".text-container__services",.3,{y:"50%", opacity:0},{y:"0%",opacity:1})
+    },[])
+
 
     const ServiceWrapper = styled.div`
-    #our-service {
-      font-family: "Futura PT";
-      max-width: 1000px;
-      max-height: 900px;
-      height: 100%;
+.call-to-action{
+text-align: center;
+.call-services{
+      width: 204.2px;
+      height: 38.7px;
+      border: 1px solid #8DC63F;
+      box-sizing: border-box;
+      border-radius: 2px;
+      background-color: ${props => props.theme.green};
+      color: white;
+      margin: 0 auto;
+      a{
+        text-decoration:none;
+        color: white;
+        font-family: "Futura PT";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17.489px;
+        line-height: 39px;
+      }
+}
+
+}
+     
+      #our-service{
+       width: 100%;
+      max-width: 1200px;
+      margin: 150px auto;
+     
+     
       display: flex;
-      overflow: hidden;
-    }
-
-    @media screen and (max-width: 596px) {
-      #our-service {
-        .services {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: space-between;
-          height: 357px;
-          margin: auto;
-          .slider-container {
-            width: 100%;
-            /* max-width: 279px; */
-
-            overflow: inherit;
-            .swiper-wrapper {
-              .swiper-slide-next {
-                opacity: 0.5;
-              }
+      flex-direction: column;
+      font-family: "Futura PT";
+      .inner-wrapper{
+      display:flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      .link-container{
+        width: 100%;
+        max-width:323px;
+        display: flex;
+          ol{
+            height: 202px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            list-style: decimal-leading-zero;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 26px;
+            color: #000000;
+            li{
+            cursor: pointer;
+            &:hover{
+              color: ${props => props.theme.green};
+            
             }
-            .slider-title {
-              h3 {
-                font-style: normal;
-                font-weight: bold;
-                font-size: 20.6236px;
-                line-height: 26px;
-                color: #8dc63f;
-              }
-            }
-            .slider-text {
-              p {
-                font-style: normal;
-                font-weight: normal;
-                font-size: 15px;
-                line-height: 160.2%;
-                /* or 24px */
-
-                color: rgba(0, 0, 0, 0.6);
-              }
             }
           }
+        
+      }
+      .text-container__services{
+        width: 100%;
+        max-width: 463px;
+        height: 295px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 160.2%;
+
+
+color: rgba(0, 0, 0, 0.6);
+      }
+      }
+        .services{
+        
         }
       }
+  
+  @media screen and (max-width: 450px){
+    .inner-wrapper{
+        padding:25px;
     }
-    @media screen and (min-width: 596px) {
-      #our-service {
-        .services {
-        height: 881px;
-        margin: auto;
-          .slider-container {
-            .swiper-wrapper {
-              .swiper-slide-next {
-                opacity: 0.2;
-              }
-              .swiper-slide {
-                width: 431px;
-                height: 612px;
-              }
-            }
-            .slider-title {
-              h3 {
-                font-style: normal;
-                font-weight: bold;
-                font-size: 35.9547px;
-                line-height: 46px;
+  }
+   .main-title {
+      display: flex;
+      font-style: normal;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      .title {
+        position: absolute;
 
-                color: #8dc63f;
-              }
-            }
-            .slider-text {
-              p {
-                font-style: normal;
-                font-weight: normal;
-                font-size: 26.1507px;
-                line-height: 160.2%;
-                /* or 42px */
+        h2 {
+          font-weight: bold;
 
-                color: rgba(0, 0, 0, 0.6);
-              }
-            }
-          }
-        }
-      }
-    }
-    
-    @media screen and (min-width: 992px) {
-    #mobile-title{
-      display: none;
-    }
-        #our-service{
+          text-transform: uppercase;
+          color: ${props => props.theme.blue};
           display: flex;
           align-items: center;
-            .services{
-              width: 970px;
-              margin: auto;
-              display: flex;
-              align-items: center;
-              
-              .service-links-container{
-                width: 100%;
-                display: flex;
-                justify-content: space-evenly;
-
-                .inner-wrapper{
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  max-width:960px;
-                  .link-container{
-                     width: 420px;
-                  ul{
-                    ol{
-                      font-style: normal;
-                      font-weight: 600;
-                      font-size: 20px;
-                      line-height: 26px;
-                      color: #000000;
-                      cursor: pointer;
-                      &:hover{
-                      color: ${props => props.theme.green};
-                      }
-                    }
-                  }
-                }
-                
-                .text-container{
-                  width: 100%;
-                  max-width: 465px;
-                  p{
-                  font-style: normal;
-                  font-weight: normal;
-                  font-size: 20px;
-                  line-height: 160.2%;
-                  color: rgba(0, 0, 0, 0.6);
-                  }
-                }
-                
-                }
-                
-              }
-                #mobile-slider{
-                    display: none;
-                }
-            }
         }
-    }
+      }
+      .number-title {
+        position: absolute;
 
-    /* .swiper-slide:nth-child(2n) {
-      width: 60%;
-    }
+        h2 {
+          font-style: normal;
 
-    .swiper-slide:nth-child(3n) {
-      width: 40%;
-    }    */
+          text-transform: uppercase;
+          color: #ececec;
+        }
+      }
+    }
+    @media screen and (max-width: 596px){
+        .main-title {
+            display: flex;
+            font-style: normal;
+            align-items: center;
+            position: relative;
+         
+            width: 311px;
+            height: 72px;
+            .title {
+              position: absolute;
+              left: 81px;
+              h2 {
+                font-weight: bold;
+                font-size: 34px;
+                line-height: 107.33%;
+                text-transform: uppercase;
+                color: ${props=>props.theme.blue};
+                display: flex;
+                align-items: center;
+              }
+            }
+            .number-title {
+              position: absolute;
+
+              h2 {
+                font-style: normal;
+                font-weight: 800;
+                font-size: 92.2247px;
+                line-height: 107.33%;
+                text-transform: uppercase;
+                color: #ececec;
+              }
+            }
+          }
+
+    }
+    @media screen and (min-width: 596px){
+        .main-title {
+            display: flex;
+            width: 530px;
+            height: 160px;
+            .number-title {
+              h2 {
+                font-weight: 800;
+                font-size: 144px;
+              }
+            }
+            .title {
+              left: 147px;
+              h2 {
+                font-size: 64px;
+                line-height: 107.33%;
+
+                text-transform: uppercase;
+
+                color: ${props=>props.theme.blue};
+              }
+            }
+          }
+    }
+    @media screen and (min-width: 992px){
+    #our-service{
+      .call-to-action{
+        display:flex;
+        justify-content: flex-start;
+        max-width: 638px;
+        width: 100%;
+      }
+    }
+        .main-title {
+            display: flex;
+            max-width: 545px;
+            width: 100%;
+            height: 165px;
+            align-self: flex-end;
+            .number-title {
+              h2 {
+                font-size: 134.475px;
+                line-height: 107.33%;
+              }
+            }
+            .title {
+              h2 {
+                font-size: 59.7665px;
+                line-height: 107.33%;
+              }
+            }
+          }
+          
+    }
+  
+    
   `;
+
+    console.log("service =>",service)
+
     return (
         <ServiceWrapper>
-            <div id="our-service">
-                <div className="services">
-                    <Title num="02" firstP="nos" secondP="services" id="mobile-title"/>
-                    <Swiper
-                        slidesPerView={2}
-                        className="slider-container"
-                        id="mobile-slider"
-                        spaceBetween={50}
-                    >
-                        <SwiperSlide>
-
-                            <div className="slider-title">
-                                <h3>01 Gestion des réseaux sociaux</h3>
-                            </div>
-                            <div className="slider-text">
-                                <p>
-                                    Peu d’indépendants prennent conscience à quel point il est
-                                    important de posséder un site internet aujourd’hui. En effet,
-                                    la plupart des gens se renseignent sur l’entreprise via
-                                    internet avant même d’être client. Il est probablement aussi
-                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
-                                    développons pour votre entreprise des sites de qualité à coût
-                                    raisonnable. Nous avons un taux de satisfactions inégalable
-                                    par nos concurrents.
-                                </p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="slider-title">
-                                <h3>02 Gestion des réseaux sociaux</h3>
-                            </div>
-                            <div className="slider-text">
-                                <p>
-                                    Peu d’indépendants prennent conscience à quel point il est
-                                    important de posséder un site internet aujourd’hui. En effet,
-                                    la plupart des gens se renseignent sur l’entreprise via
-                                    internet avant même d’être client. Il est probablement aussi
-                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
-                                    développons pour votre entreprise des sites de qualité à coût
-                                    raisonnable. Nous avons un taux de satisfactions inégalable
-                                    par nos concurrents.
-                                </p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="slider-title">
-                                <h3>03 Gestion des réseaux sociaux</h3>
-                            </div>
-                            <div className="slider-text">
-                                <p>
-                                    Peu d’indépendants prennent conscience à quel point il est
-                                    important de posséder un site internet aujourd’hui. En effet,
-                                    la plupart des gens se renseignent sur l’entreprise via
-                                    internet avant même d’être client. Il est probablement aussi
-                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
-                                    développons pour votre entreprise des sites de qualité à coût
-                                    raisonnable. Nous avons un taux de satisfactions inégalable
-                                    par nos concurrents.
-                                </p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="slider-title">
-                                <h3>03 Gestion des réseaux sociaux</h3>
-                            </div>
-                            <div className="slider-text">
-                                <p>
-                                    Peu d’indépendants prennent conscience à quel point il est
-                                    important de posséder un site internet aujourd’hui. En effet,
-                                    la plupart des gens se renseignent sur l’entreprise via
-                                    internet avant même d’être client. Il est probablement aussi
-                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
-                                    développons pour votre entreprise des sites de qualité à coût
-                                    raisonnable. Nous avons un taux de satisfactions inégalable
-                                    par nos concurrents.
-                                </p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="slider-title">
-                                <h3>03 Gestion des réseaux sociaux</h3>
-                            </div>
-                            <div className="slider-text">
-                                <p>
-                                    Peu d’indépendants prennent conscience à quel point il est
-                                    important de posséder un site internet aujourd’hui. En effet,
-                                    la plupart des gens se renseignent sur l’entreprise via
-                                    internet avant même d’être client. Il est probablement aussi
-                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
-                                    développons pour votre entreprise des sites de qualité à coût
-                                    raisonnable. Nous avons un taux de satisfactions inégalable
-                                    par nos concurrents.
-                                </p>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="slider-title">
-                                <h3>03 Gestion des réseaux sociaux</h3>
-                            </div>
-                            <div className="slider-text">
-                                <p>
-                                    Peu d’indépendants prennent conscience à quel point il est
-                                    important de posséder un site internet aujourd’hui. En effet,
-                                    la plupart des gens se renseignent sur l’entreprise via
-                                    internet avant même d’être client. Il est probablement aussi
-                                    indispensable qu’un numéro de téléphone. Chez Woopix nous
-                                    développons pour votre entreprise des sites de qualité à coût
-                                    raisonnable. Nous avons un taux de satisfactions inégalable
-                                    par nos concurrents.
-                                </p>
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>
-                    <div className="service-links-container">
-                        <Title num="02" firstP="nos" secondP="services" className="desktop-title"/>
+            <section id="our-service">
+                <div className="main-title">
+                    <div className="number-title">
+                        <h2 className="">02</h2>
+                    </div>
+                    <div className="title">
+                        <h2 className="text-letter-service">Nos</h2>
+                        <h2 className="text-letter-service">services</h2>
+                    </div>
+                </div>
                         <div className="inner-wrapper">
 
                             <div className="link-container">
-                                <ul>
-                                    <ol> 01.Creation de site Internet</ol>
-                                    <ol>02.Gestion de réseaux sociaux</ol>
-                                    <ol>03.lettrage et signalétique</ol>
-                                    <ol>04.Impression offset et digital</ol>
-                                    <ol>05.Distribution</ol>
-                                </ul>
+                                <ol>
+                                    <li>Creation de site Internet</li>
+                                    <li>Gestion de réseaux sociaux</li>
+                                    <li>lettrage et signalétique</li>
+                                    <li>Impression offset et digital</li>
+                                    <li>Distribution</li>
+                                </ol>
                             </div>
-                            <div className="text-container">
+                            <div className="text-container__services">
                                 <p>
                                     Peu d’indépendants prennent conscience à quel point il est important de posséder un
                                     site
@@ -318,10 +311,13 @@ const OurServices = (props) => {
                                 </p>
                             </div>
                         </div>
-                    </div>
-                    <CallToAction link="/nos-services" buttonTxt="Nos services"/>
+                <div className="call-to-action">
+                    <button className={"call-services"}>
+                        <Link to={`/`}>Nos services</Link>
+                    </button>
                 </div>
-            </div>
+            </section>
+
         </ServiceWrapper>
     );
 };

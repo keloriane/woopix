@@ -1,3 +1,20 @@
+.inner-title{
+  display: flex;
+
+}
+.inner-title h2{
+
+  margin-left: 20px;
+
+}
+
+.App{
+    overflow-x: hidden;
+}
+section{
+  height: 6Ovh;
+  margin-top: 150px;
+}
 body {
   margin: 0;
   font-family: -apple-system, "Futura PT", 'Segoe UI', 'Roboto', 'Oxygen',

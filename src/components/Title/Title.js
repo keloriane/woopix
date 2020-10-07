@@ -1,8 +1,6 @@
 import React,{useEffect} from 'react'
 import styled from "styled-components"
-import "splitting/dist/splitting.css";
-import "splitting/dist/splitting-cells.css";
-import Splitting from "splitting";
+
 import gsap from "gsap"
 
 const Title = (props) => {
@@ -14,13 +12,17 @@ const Title = (props) => {
       position: relative;
       width: 100%;
       .title {
+      
         position: absolute;
+         .inner-title{
+      display: flex;
+      }
 
         h2 {
           font-weight: bold;
 
           text-transform: uppercase;
-          color: #1b065e;
+          color: ${props => props.theme.blue};
           display: flex;
           align-items: center;
         }
@@ -47,13 +49,13 @@ const Title = (props) => {
             height: 72px;
             .title {
               position: absolute;
-              left: 81px;
+              left: 107px;
               h2 {
                 font-weight: bold;
                 font-size: 34px;
                 line-height: 107.33%;
                 text-transform: uppercase;
-                color: #1b065e;
+                color: ${props=>props.theme.blue};
                 display: flex;
                 align-items: center;
               }
@@ -92,7 +94,7 @@ const Title = (props) => {
 
                 text-transform: uppercase;
 
-                color: #1b065e;
+                color: ${props=>props.theme.blue};
               }
             }
           }
@@ -118,21 +120,7 @@ const Title = (props) => {
           }
     }
     `
-    useEffect(()=>{
-        //Split each word from a tag
-        const target = document.querySelectorAll('.text-letter');
-        const results = Splitting({ target: target, by: 'chars' });
-        console.log(results);
-        const char = document.querySelectorAll('.char')
-        console.log(char);
 
-
-
-
-
-
-
-    },[])
     return (
         <TitleMain >
         <div className="main-title">

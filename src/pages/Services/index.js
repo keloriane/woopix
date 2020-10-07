@@ -19,9 +19,6 @@ const Services = (props) => {
     const [contentRef, inView] = useInView({
         triggerOnce: true,
         // rootMargin: '-300px'
-
-
-
     })
 
     const parent = {

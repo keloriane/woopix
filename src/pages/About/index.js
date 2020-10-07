@@ -23,8 +23,8 @@ export const About = (props) => {
             scrollTrigger: {
                 id: "#about",
                 trigger: "#about",
-                start: "top center-=300px",
-                markers: true
+                start: "top center-=100px",
+
             }
         })
 
@@ -42,16 +42,16 @@ export const About = (props) => {
 
         function splitWord(word) {
             return [...word]
-                .map(letter => `<span class="chars">${letter}</span>`)
+                .map(letter => `<span class="chars-about">${letter}</span>`)
                 .join("");
         }
 
-        const words = [...document.querySelectorAll(".text-letter")];
+        const words = [...document.querySelectorAll(".text-letter-about")];
         // eslint-disable-next-line
 
         words.map(word => {
             word.innerHTML = splitWord(word.textContent);
-            const newLetter = [...word.querySelectorAll(".chars")];
+            const newLetter = [...word.querySelectorAll(".chars-about")];
             // eslint-disable-next-line
             newLetter.map(letter => {
                 titleArray.push(letter);
@@ -59,12 +59,12 @@ export const About = (props) => {
         });
 
 
-
+    const chara = document.querySelectorAll(".chars-about")
 
         aboutTl
 
-            .from("#about", .8, {opacity: 0})
-            .staggerFrom(".chars", .3, {y: "100%", opacity: 0}, .03)
+            .from("#about", .3, {opacity: 0})
+            .staggerFrom(chara, .3, {y: "100%", opacity: 0}, .03)
             .staggerFrom(".inner-text", .5, {y: "100%", opacity: 0, delay: -.4}, .2)
 
 
@@ -75,17 +75,23 @@ export const About = (props) => {
         <Container>
             <AboutWrapper>
 
-                <div id="about">
+                <section id="about">
                     <img src={doted} alt="" className={"doted"}/>
                     <div className="about-wrapper">
                         <TitleMain>
                             <div className="main-title">
                                 <div className="number-title">
-                                    <h2 className="text-letter">01</h2>
+                                    <h2>01</h2>
                                 </div>
                                 <div className="title">
-                                    <h2 className="text-letter">à propos</h2>
-                                    <h2 className="text-letter">de woopix</h2>
+                                    <div className="inner-title">
+                                    <h2 className="text-letter-about">à </h2> <h2 className="text-letter-about">  propos</h2>
+
+                                    </div>
+                                    <div className="inner-title">
+                                    <h2 className="text-letter-about">de </h2><h2 className="text-letter-about"> woopix</h2>
+
+                                    </div>
                                 </div>
                             </div>
 
@@ -108,7 +114,7 @@ export const About = (props) => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </section>
             </AboutWrapper>
         </Container>
     );
